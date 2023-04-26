@@ -18,6 +18,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include QMK_KEYBOARD_H
+#include "features/achordion.h"
 
 #define LTOSL_NUMS LT(_NUMS,OSL(_FUNC_ACCENTS))
 #define ALT_SPC LALT_T(KC_SPC)
@@ -66,6 +67,10 @@ combo_t key_combos[] = {
   [CV_PASTE] = COMBO(cv_combo, RCS(KC_V)),
   [XV_PASTE_PRIMARY] = COMBO(xv_combo, S(KC_INS)),
 };
+
+void matrix_scan_user(void) {
+  achordion_task();
+}
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_split_3x6_3(
@@ -130,6 +135,23 @@ CTL_T(KC_CAPS), KC_WH_D, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX,                    
   )
 };
 
+bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
+                     uint16_t other_keycode, keyrecord_t* other_record) {
+    switch (tap_hold_keycode) {
+        case ALT_SPC:  // ALT + TAB and ALT + U.
+            if (other_keycode == KC_TAB ||
+                other_keycode == NAV_BSPC ||
+                other_keycode == KC_U ||
+                other_keycode == KC_DOT) {
+                return true;
+            }
+            tap_code16(KC_SPC);
+            return false;
+            break;
+    }
+
+    return true;
+}
 
 bool process_special_characters(uint16_t keycode, keyrecord_t* record) {
     if (!record->event.pressed) {
