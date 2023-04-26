@@ -198,6 +198,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
                 return false;
             }
             break;
+        case CTL_T(KC_TILD):
+            if (record->tap.count && record->event.pressed) {
+                tap_code16(KC_TILD);
+                return false;
+            }
+            break;
     }
 
     return true;
