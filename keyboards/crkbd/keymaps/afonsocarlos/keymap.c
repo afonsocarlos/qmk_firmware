@@ -31,6 +31,28 @@ enum custom_layers {
     _SYS,
 };
 
+enum combos {
+  ZX_UNDO ,
+  XC_COPY ,
+  CV_PASTE,
+  XV_PASTE_PRIMARY,
+  COMBO_LENGTH
+};
+uint16_t COMBO_LEN = COMBO_LENGTH;
+
+const uint16_t PROGMEM zx_combo[] = {KC_Z, KC_X, COMBO_END};
+const uint16_t PROGMEM xc_combo[] = {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM cv_combo[] = {KC_C, KC_V, COMBO_END};
+const uint16_t PROGMEM xv_combo[] = {KC_X, KC_V, COMBO_END};
+
+
+combo_t key_combos[] = {
+  [ZX_UNDO] = COMBO(zx_combo, C(KC_Z)),
+  [XC_COPY] = COMBO(xc_combo, C(KC_INS)),
+  [CV_PASTE] = COMBO(cv_combo, RCS(KC_V)),
+  [XV_PASTE_PRIMARY] = COMBO(xv_combo, S(KC_INS)),
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
