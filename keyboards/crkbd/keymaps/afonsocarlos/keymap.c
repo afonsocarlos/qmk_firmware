@@ -31,6 +31,20 @@ enum custom_layers {
     _SYS,
 };
 
+enum custom_keycodes {
+    KC_ATIL = SAFE_RANGE, // ã direct key
+    KC_ACUT, // á direct key
+    KC_ACIR, // â direct key
+    KC_CEDL, // ç direct key
+    KC_ECUT, // é direct key
+    KC_ECIR, // ê direct key
+    KC_OTIL, // õ direct key
+    KC_OCUT, // ó direct key
+    KC_OCIR, // ô direct key
+    KC_CENT,  // ¢ direct key
+    KC_EURO,  // € direct key
+};
+
 enum combos {
   ZX_UNDO ,
   XC_COPY ,
@@ -95,9 +109,9 @@ CTL_T(KC_CAPS), KC_WH_D, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX,                    
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        KC_F12,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                        KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX,KC_ATILD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      KC_ACIR, KC_ATIL, KC_ACUT, KC_ECUT, KC_ECIR, XXXXXXX,                      XXXXXXX, XXXXXXX, KC_OCIR, KC_OTIL, KC_OCUT, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX,KC_CEDIL, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      XXXXXXX, XXXXXXX, XXXXXXX,KC_CEDL, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           KC_LGUI, TO(_BASE),  KC_LALT,     KC_ENT, _______, KC_RALT
                                       //`--------------------------'  `--------------------------'
@@ -117,8 +131,65 @@ CTL_T(KC_CAPS), KC_WH_D, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX,                    
 };
 
 
+bool process_special_characters(uint16_t keycode, keyrecord_t* record) {
+    if (!record->event.pressed) {
+        return true;
+    }
+
+    switch (keycode) {
+        // ã key
+        case KC_ATIL:
+            tap_code16(RALT(KC_A));
+            tap_code16(KC_TILD);
+            return false;
+        // á key
+        case KC_ACUT:
+            tap_code16(RALT(KC_A));
+            tap_code16(KC_QUOT);
+            return false;
+        // â key
+        case KC_ACIR:
+            tap_code16(RALT(KC_A));
+            tap_code16(KC_CIRC);
+            return false;
+        // ç key
+        case KC_CEDL:
+            tap_code16(RALT(KC_C));
+            tap_code16(KC_COMM);
+            return false;
+        // é key
+        case KC_ECUT:
+            tap_code16(RALT(KC_E));
+            tap_code16(KC_QUOT);
+            return false;
+        // ê key
+        case KC_ECIR:
+            tap_code16(RALT(KC_E));
+            tap_code16(KC_CIRC);
+            return false;
+        // õ key
+        case KC_OTIL:
+            tap_code16(RALT(KC_O));
+            tap_code16(KC_TILD);
+            return false;
+        // ó key
+        case KC_OCUT:
+            tap_code16(RALT(KC_O));
+            tap_code16(KC_QUOT);
+            return false;
+        // ô key
+        case KC_OCIR:
+            tap_code16(RALT(KC_O));
+            tap_code16(KC_CIRC);
+            return false;
+    }
+
+    return true;
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     if (!process_achordion(keycode, record)) { return false; }
+    if (!process_special_characters(keycode, record)) { return false; }
 
     switch (keycode) {
         case LTOSL_NUMS:
