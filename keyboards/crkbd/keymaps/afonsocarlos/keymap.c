@@ -81,3 +81,12 @@ CTL_T(KC_CAPS), KC_WH_D, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX,                    
                                       //`--------------------------'  `--------------------------'
   )
 };
+
+
+const key_override_t pipe_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_SLSH, KC_PIPE);
+
+// This globally defines all key overrides to be used
+const key_override_t **key_overrides = (const key_override_t *[]){
+    &pipe_key_override,
+    NULL // Null terminate the array of overrides!
+};
