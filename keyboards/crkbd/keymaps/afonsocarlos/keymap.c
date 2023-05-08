@@ -200,6 +200,8 @@ bool process_special_characters(uint16_t keycode, keyrecord_t* record) {
         // á key
         case KC_ACUT:
             tap_code16(RALT(KC_A));
+            unregister_code16(KC_LSFT);
+            unregister_code16(KC_RSFT);
             tap_code16(KC_QUOT);
             return false;
         // â key
@@ -215,6 +217,8 @@ bool process_special_characters(uint16_t keycode, keyrecord_t* record) {
         // é key
         case KC_ECUT:
             tap_code16(RALT(KC_E));
+            unregister_code16(KC_LSFT);
+            unregister_code16(KC_RSFT);
             tap_code16(KC_QUOT);
             return false;
         // ê key
@@ -230,12 +234,24 @@ bool process_special_characters(uint16_t keycode, keyrecord_t* record) {
         // ó key
         case KC_OCUT:
             tap_code16(RALT(KC_O));
+            unregister_code16(KC_LSFT);
+            unregister_code16(KC_RSFT);
             tap_code16(KC_QUOT);
             return false;
         // ô key
         case KC_OCIR:
             tap_code16(RALT(KC_O));
             tap_code16(KC_CIRC);
+            return false;
+        // € key
+        case KC_EURO:
+            tap_code16(RALT(KC_E));
+            tap_code16(KC_EQUAL);
+            return false;
+        // ¢ key
+        case KC_CENT:
+            tap_code16(RALT(KC_C));
+            tap_code16(KC_PIPE);
             return false;
     }
 
