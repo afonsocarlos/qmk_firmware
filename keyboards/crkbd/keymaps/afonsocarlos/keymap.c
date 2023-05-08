@@ -176,6 +176,16 @@ bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
     return true;
 }
 
+uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
+  switch (tap_hold_keycode) {
+    case ALT_SPC:
+      return 200;  // Bypass Achordion for these keys.
+  }
+
+  return 800;  // Otherwise use a timeout of 800 ms.
+}
+
+
 bool process_special_characters(uint16_t keycode, keyrecord_t* record) {
     if (!record->event.pressed) {
         return true;
