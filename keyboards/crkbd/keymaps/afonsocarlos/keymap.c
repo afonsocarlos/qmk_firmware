@@ -59,7 +59,7 @@ const uint16_t PROGMEM gui_del_combo[] = {KC_LGUI, ALT_DEL, COMBO_END};
 
 combo_t key_combos[] = {
   [ZX_UNDO] = COMBO(zx_combo, C(KC_Z)),
-  [XC_COPY] = COMBO(xc_combo, C(KC_INS)),
+  [XC_COPY] = COMBO(xc_combo, RCS(KC_C)),
   [CV_PASTE] = COMBO(cv_combo, RCS(KC_V)),
   [XV_PASTE_PRIMARY] = COMBO(xv_combo, S(KC_INS)),
   [GUI_DEL_MAINTENANCE] = COMBO(gui_del_combo, TG(_MAINTENANCE)),
