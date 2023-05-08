@@ -19,18 +19,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include QMK_KEYBOARD_H
 #include "features/achordion.h"
+#include "layers.h"
 
 #define LTOSL_NUMS LT(_NUMS,OSL(_FUNC_ACCENTS))
 #define ALT_SPC LALT_T(KC_SPC)
 #define NAV_BSPC LT(_NAV,KC_BSPC)
-
-enum custom_layers {
-    _BASE,
-    _NUMS,
-    _NAV,
-    _FUNC_ACCENTS,
-    _SYS,
-};
 
 enum custom_keycodes {
     KC_ATIL = SAFE_RANGE, // ã direct key
