@@ -22,6 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "layers.h"
 
 #define ALT_SPC LALT_T(KC_SPC)
+#define ALT_DEL RALT_T(KC_DEL)
 #define LTOSL_NUMS LT(_NUMS,OSL(_FUNC_ACCENTS))
 #define NAV_BSPC LT(_NAV,KC_BSPC)
 
@@ -74,7 +75,7 @@ CTL_T(KC_ESC),    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                     
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_RSFT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                        KC_LGUI, LTOSL_NUMS, ALT_SPC,     KC_ENT, NAV_BSPC, RALT_T(KC_DEL)
+                                        KC_LGUI, LTOSL_NUMS, ALT_SPC,     LT(_GAME_NUMPAD,KC_ENT), NAV_BSPC, ALT_DEL
                                       //`--------------------------'  `--------------------------'
 
   ),
@@ -103,6 +104,19 @@ CTL_T(KC_CAPS), KC_WH_D, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX,                    
                                       //`--------------------------'  `--------------------------'
   ),
 
+  [_SYS] = LAYOUT_split_3x6_3(
+  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
+      XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, KC_MRWD, XXXXXXX, KC_MFFD, XXXXXXX, XXXXXXX,
+  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+      RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX, XXXXXXX,                      KC_VOLU, KC_MPRV, KC_MPLY, KC_MNXT, KC_PSCR, XXXXXXX,
+  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+      RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX, XXXXXXX,                      KC_VOLD, KC_MUTE, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
+                                          KC_LGUI, _______,  KC_LALT,     KC_ENT, _______, KC_RALT
+                                      //`--------------------------'  `--------------------------'
+  ),
+
+  // Extra one shot layer for accessing Function and accents keys
   [_FUNC_ACCENTS] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        KC_F12,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                        KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,
@@ -115,15 +129,16 @@ CTL_T(KC_CAPS), KC_WH_D, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX,                    
                                       //`--------------------------'  `--------------------------'
   ),
 
-  [_SYS] = LAYOUT_split_3x6_3(
+  // Extra layer for Numpad and Gaming keys
+  [_GAME_NUMPAD] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, KC_MRWD, XXXXXXX, KC_MFFD, XXXXXXX, XXXXXXX,
+       KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,   KC_F5,                       KC_NUM,   KC_P7,   KC_P8,   KC_P9, XXXXXXX, KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX, XXXXXXX,                      KC_VOLU, KC_MPRV, KC_MPLY, KC_MNXT, KC_PSCR, XXXXXXX,
+      KC_RCTL,    KC_A,    KC_S,    KC_D,    KC_F, XXXXXXX,                      XXXXXXX,   KC_P4,   KC_P5,   KC_P6, XXXXXXX, DF(_GAME_NUMPAD),
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX, XXXXXXX,                      KC_VOLD, KC_MUTE, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX,   KC_P1,   KC_P2,   KC_P3, XXXXXXX, DF(_BASE),
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI, _______,  KC_LALT,     KC_ENT, _______, KC_RALT
+                                          KC_LGUI, XXXXXXX,  ALT_SPC,    _______,   KC_P0, KC_PDOT
                                       //`--------------------------'  `--------------------------'
   )
 };
