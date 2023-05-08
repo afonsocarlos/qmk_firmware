@@ -45,6 +45,7 @@ enum combos {
   XC_COPY ,
   CV_PASTE,
   XV_PASTE_PRIMARY,
+  GUI_DEL_MAINTENANCE,
   COMBO_LENGTH
 };
 uint16_t COMBO_LEN = COMBO_LENGTH;
@@ -53,6 +54,7 @@ const uint16_t PROGMEM zx_combo[] = {KC_Z, KC_X, COMBO_END};
 const uint16_t PROGMEM xc_combo[] = {KC_X, KC_C, COMBO_END};
 const uint16_t PROGMEM cv_combo[] = {KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM xv_combo[] = {KC_X, KC_V, COMBO_END};
+const uint16_t PROGMEM gui_del_combo[] = {KC_LGUI, ALT_DEL, COMBO_END};
 
 
 combo_t key_combos[] = {
@@ -60,6 +62,7 @@ combo_t key_combos[] = {
   [XC_COPY] = COMBO(xc_combo, C(KC_INS)),
   [CV_PASTE] = COMBO(cv_combo, RCS(KC_V)),
   [XV_PASTE_PRIMARY] = COMBO(xv_combo, S(KC_INS)),
+  [GUI_DEL_MAINTENANCE] = COMBO(gui_del_combo, TG(_MAINTENANCE)),
 };
 
 void matrix_scan_user(void) {
@@ -139,6 +142,18 @@ CTL_T(KC_CAPS), KC_WH_D, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX,                    
       KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX,   KC_P1,   KC_P2,   KC_P3, XXXXXXX, DF(_BASE),
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           KC_LGUI, XXXXXXX,  ALT_SPC,    _______,   KC_P0, KC_PDOT
+                                      //`--------------------------'  `--------------------------'
+  ),
+
+  [_MAINTENANCE] = LAYOUT_split_3x6_3(
+  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
+      QK_BOOT,  EE_CLR, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
+                                          _______, XXXXXXX,  XXXXXXX,     XXXXXXX, XXXXXXX, _______
                                       //`--------------------------'  `--------------------------'
   )
 };
