@@ -21,8 +21,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "features/achordion.h"
 #include "layers.h"
 
-#define LTOSL_NUMS LT(_NUMS,OSL(_FUNC_ACCENTS))
 #define ALT_SPC LALT_T(KC_SPC)
+#define LTOSL_NUMS LT(_NUMS,OSL(_FUNC_ACCENTS))
 #define NAV_BSPC LT(_NAV,KC_BSPC)
 
 enum custom_keycodes {
@@ -87,15 +87,15 @@ CTL_T(KC_TILD),    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                    
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT, XXXXXXX, XXXXXXX, KC_CENT, KC_EURO, XXXXXXX,                      KC_QUES, KC_LCBR, KC_LBRC, KC_RBRC, KC_RCBR, KC_BSLS,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI, _______,  KC_LALT,     KC_ENT, MO(_SYS), KC_RALT
+                                          KC_LGUI, _______,  KC_LALT,     KC_ENT, LT(_SYS,KC_BSPC), KC_RALT
                                       //`--------------------------'  `--------------------------'
   ),
 
   [_NAV] = LAYOUT_split_3x6_3(
    //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-        KC_TAB, KC_WH_U, KC_BTN2, KC_MS_U, KC_BTN1, KC_BTN3,                      KC_HOME, KC_PGDN, KC_PGUP,  KC_END, DF(_BASE), DF(_NAV),
+        KC_TAB, KC_WH_U, KC_BTN2, KC_MS_U, KC_BTN1, KC_BTN3,                      KC_HOME, KC_PGDN, KC_PGUP,  KC_END,DF(_BASE), DF(_NAV),
    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-CTL_T(KC_CAPS), KC_WH_D, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX,                      KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT, XXXXXXX, KC_RCTL,
+CTL_T(KC_CAPS), KC_WH_D, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX,                      KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT, XXXXXXX, RCTL_T(KC_NUM),
    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
