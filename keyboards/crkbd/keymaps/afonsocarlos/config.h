@@ -26,6 +26,19 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define EE_HANDS
 #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
 #define HOLD_ON_OTHER_KEY_PRESS
+// Mouse key speed and acceleration.
+#undef MOUSEKEY_DELAY
+#define MOUSEKEY_DELAY          0
+#undef MOUSEKEY_INTERVAL
+#define MOUSEKEY_INTERVAL       16
+#undef MOUSEKEY_MOVE_DELTA
+#define MOUSEKEY_MOVE_DELTA     12
+#undef MOUSEKEY_WHEEL_DELAY
+#define MOUSEKEY_WHEEL_DELAY    0
+#undef MOUSEKEY_MAX_SPEED
+#define MOUSEKEY_MAX_SPEED      2
+#undef MOUSEKEY_TIME_TO_MAX
+#define MOUSEKEY_TIME_TO_MAX    64
 
 #define RGBLIGHT_LAYERS
 #define RGBLIGHT_EFFECT_BREATHING

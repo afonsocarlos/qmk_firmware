@@ -4,6 +4,14 @@
 #ifdef RGBLIGHT_ENABLE
 // Light LEDs 11 & 12 in purple when keyboard layer 2 is active
 const rgblight_segment_t PROGMEM nav_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {11, 1, HSV_GREEN},
+    {16, 2, HSV_GREEN},
+    {19, 1, HSV_GREEN},
+    {10, 1, HSV_YELLOW},
+    {15, 1, HSV_YELLOW},
+    {18, 1, HSV_YELLOW},
+    {12, 1, HSV_ORANGE},
+    {20, 1, HSV_ORANGE},
     {35, 2, HSV_GREEN},
     {37, 2, HSV_GREEN},
     {43, 2, HSV_GREEN},

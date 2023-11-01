@@ -5,6 +5,7 @@ CAPS_WORD_ENABLE    = yes
 COMBO_ENABLE        = yes
 KEY_OVERRIDE_ENABLE = yes
 LTO_ENABLE          = yes
+MOUSEKEY_ENABLE     = yes
 RGBLIGHT_ENABLE     = yes
 # TAP_DANCE_ENABLE = yes
 # WPM_ENABLE          = yes

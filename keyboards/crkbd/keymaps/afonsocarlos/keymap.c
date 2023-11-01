@@ -17,6 +17,8 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include <ctype.h>
+#include "keycodes.h"
 #include QMK_KEYBOARD_H
 #include "features/achordion.h"
 #include "layers.h"
@@ -97,11 +99,11 @@ CTL_T(KC_TILD),    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                    
 
   [_NAV] = LAYOUT_split_3x6_3(
    //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-        KC_TAB, KC_WH_U, KC_BTN2, KC_MS_U, KC_BTN1, KC_BTN3,                      KC_HOME, KC_PGDN, KC_PGUP,  KC_END,DF(_BASE), DF(_NAV),
+        KC_TAB, KC_WH_U, KC_BTN2, KC_MS_U, KC_BTN1, XXXXXXX,                      KC_HOME, KC_PGDN, KC_PGUP,  KC_END,DF(_BASE), DF(_NAV),
    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
 CTL_T(KC_CAPS), KC_WH_D, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX,                      KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT, XXXXXXX, RCTL_T(KC_NUM),
    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+       KC_LSFT, XXXXXXX, KC_BTN4, KC_BTN3, KC_BTN5, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_RSFT,
    //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           KC_LGUI, MO(_SYS),  KC_LALT,     KC_ENT, _______, KC_RALT
                                       //`--------------------------'  `--------------------------'
@@ -176,12 +178,12 @@ bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
 }
 
 uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
-  switch (tap_hold_keycode) {
-    case ALT_SPC:
-      return 200;  // Bypass Achordion for these keys.
-  }
+    switch (tap_hold_keycode) {
+        case ALT_SPC:
+            return 100;  // Bypass Achordion for these keys.
+    }
 
-  return 800;  // Otherwise use a timeout of 800 ms.
+    return 500;  // Otherwise use a timeout of 800 ms.
 }
 
 
