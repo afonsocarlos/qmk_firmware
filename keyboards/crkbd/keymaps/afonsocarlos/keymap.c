@@ -287,6 +287,27 @@ void post_process_record_user(uint16_t keycode, keyrecord_t* record) {
     }
 }
 
+
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        // Disable automatic hold action when another key is pressed for CTL_T(KC_QUOT) (ABAB)
+        case CTL_T(KC_QUOT):
+            return false;
+        default:
+            return true;
+    }
+}
+
+bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case CTL_T(KC_QUOT):
+            // Immediately select the hold action when another key is tapped (ABBA).
+            return true;
+        default:
+            return false;
+    }
+}
+
 const key_override_t pipe_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_SLSH, KC_PIPE);
 
 // This globally defines all key overrides to be used
