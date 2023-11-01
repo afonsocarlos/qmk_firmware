@@ -1,5 +1,6 @@
 SRC += features/achordion.c
 SRC += rgb_config.c
+SRC += oled_config.c
 
 CAPS_WORD_ENABLE    = yes
 COMBO_ENABLE        = yes
