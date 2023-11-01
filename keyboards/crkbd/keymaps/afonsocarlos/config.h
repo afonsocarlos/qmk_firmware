@@ -59,3 +59,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #undef RGBLIGHT_EFFECT_STATIC_GRADIENT
 #undef RGBLIGHT_EFFECT_TWINKLE
 #undef RGBLIGHT_SLEEP
+
+#define NO_MUSIC_MODE
+#define LAYER_STATE_8BIT
