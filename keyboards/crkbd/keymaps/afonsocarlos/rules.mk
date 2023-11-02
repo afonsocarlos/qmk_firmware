@@ -2,6 +2,7 @@ SRC += features/achordion.c
 SRC += features/rgb_config.c
 SRC += features/oled_config.c
 SRC += features/os_toggle.c
+SRC += features/shortcuts.c
 
 CAPS_WORD_ENABLE    = yes
 COMBO_ENABLE        = yes
@@ -26,3 +27,5 @@ SPACE_CADET_ENABLE = no
 TAP_DANCE_ENABLE   = no
 VIA_ENABLE         = no
 WPM_ENABLE         = no
+
+INTROSPECTION_KEYMAP_C = features/combos.c

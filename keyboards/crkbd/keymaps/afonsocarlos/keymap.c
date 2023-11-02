@@ -23,51 +23,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "definitions/keycodes.h"
 #include "features/achordion.h"
 #include "features/os_toggle.h"
+#include "features/shortcuts.h"
 #include "layers.h"
 
 #define ALT_SPC LALT_T(KC_SPC)
 #define ALT_DEL RALT_T(KC_DEL)
 #define LTOSL_NUMS LT(_NUMS,OSL(_FUNC_ACCENTS))
 #define NAV_BSPC LT(_NAV,KC_BSPC)
-
-enum custom_keycodes {
-    KC_ATIL = SAFE_RANGE, // ã direct key
-    KC_ACUT, // á direct key
-    KC_ACIR, // â direct key
-    KC_CEDL, // ç direct key
-    KC_ECUT, // é direct key
-    KC_ECIR, // ê direct key
-    KC_OTIL, // õ direct key
-    KC_OCUT, // ó direct key
-    KC_OCIR, // ô direct key
-    KC_CENT,  // ¢ direct key
-    KC_EURO,  // € direct key
-};
-
-enum combos {
-  ZX_UNDO ,
-  XC_COPY ,
-  CV_PASTE,
-  XV_PASTE_PRIMARY,
-  GUI_DEL_MAINTENANCE,
-  COMBO_LENGTH
-};
-uint16_t COMBO_LEN = COMBO_LENGTH;
-
-const uint16_t PROGMEM zx_combo[] = {KC_Z, KC_X, COMBO_END};
-const uint16_t PROGMEM xc_combo[] = {KC_X, KC_C, COMBO_END};
-const uint16_t PROGMEM cv_combo[] = {KC_C, KC_V, COMBO_END};
-const uint16_t PROGMEM xv_combo[] = {KC_X, KC_V, COMBO_END};
-const uint16_t PROGMEM gui_del_combo[] = {KC_LGUI, ALT_DEL, COMBO_END};
-
-
-combo_t key_combos[] = {
-  [ZX_UNDO] = COMBO(zx_combo, C(KC_Z)),
-  [XC_COPY] = COMBO(xc_combo, RCS(KC_C)),
-  [CV_PASTE] = COMBO(cv_combo, RCS(KC_V)),
-  [XV_PASTE_PRIMARY] = COMBO(xv_combo, S(KC_INS)),
-  [GUI_DEL_MAINTENANCE] = COMBO(gui_del_combo, TG(_MAINTENANCE)),
-};
 
 void matrix_scan_user(void) {
   achordion_task();
@@ -264,6 +226,7 @@ bool process_special_characters(uint16_t keycode, keyrecord_t* record) {
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     if (!process_achordion(keycode, record)) { return false; }
     if (!process_special_characters(keycode, record)) { return false; }
+    if (!process_shortcuts(keycode, record)) { return false; }
     if (!process_os_toggle(keycode, record)) { return false; }
 
     switch (keycode) {
