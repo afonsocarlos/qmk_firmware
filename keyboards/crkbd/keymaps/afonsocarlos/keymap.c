@@ -18,8 +18,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include <ctype.h>
-#include "keycodes.h"
 #include QMK_KEYBOARD_H
+
+#include "definitions/keycodes.h"
 #include "features/achordion.h"
 #include "features/os_toggle.h"
 #include "layers.h"
