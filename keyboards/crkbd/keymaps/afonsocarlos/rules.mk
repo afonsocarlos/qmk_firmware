@@ -1,12 +1,14 @@
 SRC += features/achordion.c
 SRC += features/rgb_config.c
 SRC += features/oled_config.c
+SRC += features/os_toggle.c
 
 CAPS_WORD_ENABLE    = yes
 COMBO_ENABLE        = yes
 KEY_OVERRIDE_ENABLE = yes
 LTO_ENABLE          = yes
 MOUSEKEY_ENABLE     = yes
+OS_DETECTION_ENABLE = yes
 RGBLIGHT_ENABLE     = yes
 
 #Dont use
