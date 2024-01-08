@@ -16,11 +16,20 @@ enum custom_keycodes {
     KC_EURO,  // € direct key
 
     // Combo codes
+    MC_CLTAB,
+    MC_CLWIN,
+    MC_CUT,
     MC_COPY,
+    MC_FCREL,
     MC_FIND,
     MC_LOCK,
+    MC_OPTAB,
+    MC_OPWIN,
     MC_PASTE,
     MC_REDO,
+    MC_RELOD,
+    MC_RETAB,
+    MC_SELEC,
     MC_UNDO,
 
     // Toggle codes

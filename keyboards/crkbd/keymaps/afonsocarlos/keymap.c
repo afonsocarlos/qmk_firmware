@@ -18,6 +18,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include <ctype.h>
+#include "keycodes.h"
+#include "modifiers.h"
+#include "quantum.h"
 #include QMK_KEYBOARD_H
 
 #include "definitions/keycodes.h"
@@ -134,7 +137,6 @@ bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
                 other_keycode == KC_DOT) {
                 return true;
             }
-            tap_code16(KC_SPC);
             return false;
     }
 
