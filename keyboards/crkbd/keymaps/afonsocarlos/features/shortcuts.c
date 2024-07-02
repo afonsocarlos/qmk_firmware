@@ -1,5 +1,4 @@
 #include "keycodes.h"
-#include QMK_KEYBOARD_H
 
 #include "shortcuts.h"
 
@@ -12,7 +11,6 @@ bool process_shortcuts(uint16_t keycode, keyrecord_t *record) {
     bool isLinux = is_linux();
 
     switch (keycode) {
-
         // Close Tab
         case MC_CLTAB:
             if (isMacOS) {
@@ -65,6 +63,15 @@ bool process_shortcuts(uint16_t keycode, keyrecord_t *record) {
                 tap_code16(S(G(KC_T)));
             } else {
                 tap_code16(S(C(KC_T)));
+            }
+            return false;
+
+        // Save (Also TMuX prefix)
+        case MC_SAVE:
+            if (isMacOS) {
+                tap_code16(G(KC_S));
+            } else {
+                tap_code16(C(KC_S));
             }
             return false;
 
@@ -135,7 +142,7 @@ bool process_shortcuts(uint16_t keycode, keyrecord_t *record) {
         case MC_PASTE:
             if (isMacOS) {
                 tap_code16(G(KC_V));
-            }else if (isLinux) {
+            } else if (isLinux) {
                 tap_code16(S(C(KC_V)));
             } else {
                 tap_code16(C(KC_V));
@@ -150,7 +157,6 @@ bool process_shortcuts(uint16_t keycode, keyrecord_t *record) {
                 tap_code16(C(KC_N));
             }
             return false;
-
     }
 
     return true;

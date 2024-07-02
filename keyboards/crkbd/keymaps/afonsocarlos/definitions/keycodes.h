@@ -29,6 +29,7 @@ enum custom_keycodes {
     MC_REDO,
     MC_RELOD,
     MC_RETAB,
+    MC_SAVE,
     MC_SELEC,
     MC_UNDO,
 

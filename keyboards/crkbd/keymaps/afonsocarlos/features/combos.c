@@ -1,7 +1,5 @@
 #include QMK_KEYBOARD_H
 
-#include "layers.h"
-
 enum combos {
   QW_CLTAB,
   QWE_CLWIN,
@@ -9,7 +7,8 @@ enum combos {
   WER_FCREL,
   RT_OPTAB,
   ERT_RETAB,
-  AS_SELEC,
+  AS_SAVE,
+  LCTL_A_SELEC,
   DF_FIND,
   L_SCLN_LOCK,
   LSFT_Z_REDO,
@@ -31,6 +30,7 @@ const uint16_t PROGMEM wer_combo[]     = {KC_W, KC_E, KC_R, COMBO_END};
 const uint16_t PROGMEM rt_combo []     = {KC_R, KC_T, COMBO_END};
 const uint16_t PROGMEM ert_combo[]     = {KC_E, KC_R, KC_T, COMBO_END};
 const uint16_t PROGMEM as_combo[]      = {KC_A, KC_S, COMBO_END};
+const uint16_t PROGMEM lctl_a_selec[]  = {CTL_T(KC_ESC), KC_A, COMBO_END};
 const uint16_t PROGMEM df_combo[]      = {KC_D, KC_F, COMBO_END};
 const uint16_t PROGMEM l_scln_combo[]  = {KC_L, KC_SCLN, COMBO_END};
 const uint16_t PROGMEM lsft_z_combo[]  = {KC_LSFT, KC_Z, COMBO_END};
@@ -50,7 +50,8 @@ combo_t key_combos[] = {
   [WER_FCREL] = COMBO(wer_combo, MC_FCREL),
   [RT_OPTAB] = COMBO(rt_combo, MC_OPTAB),
   [ERT_RETAB] = COMBO(ert_combo, MC_RETAB),
-  [AS_SELEC] = COMBO(as_combo, MC_SELEC),
+  [AS_SAVE] = COMBO(as_combo, MC_SAVE),
+  [LCTL_A_SELEC] = COMBO(lctl_a_selec, MC_SELEC),
   [DF_FIND] = COMBO(df_combo, MC_FIND),
   [L_SCLN_LOCK] = COMBO(l_scln_combo, MC_LOCK),
   [LSFT_Z_REDO] = COMBO(lsft_z_combo, MC_REDO),
