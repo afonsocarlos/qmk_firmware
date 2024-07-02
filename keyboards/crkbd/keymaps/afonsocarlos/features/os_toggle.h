@@ -1,9 +1,7 @@
 #pragma once
 
-#include QMK_KEYBOARD_H
-
+#include "action.h"
 #include "os_detection.h"
-#include "../definitions/keycodes.h"
 
 typedef struct {
     os_variant_t type;

@@ -1,5 +1,7 @@
-#include "keycodes.h"
+#include "quantum.h"
 
+#include "definitions/keycodes.h"
+#include "os_toggle.h"
 #include "shortcuts.h"
 
 bool process_shortcuts(uint16_t keycode, keyrecord_t *record) {

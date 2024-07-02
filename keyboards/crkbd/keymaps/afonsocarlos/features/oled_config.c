@@ -1,7 +1,6 @@
 #include "host.h"
 #include "quantum.h"
 #include "layers.h"
-#include <stdio.h>
 
 #include "features/os_toggle.h"
 

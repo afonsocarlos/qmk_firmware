@@ -1,4 +1,4 @@
-#include QMK_KEYBOARD_H
+#include <stdint.h>
 
 enum combos {
   QW_CLTAB,

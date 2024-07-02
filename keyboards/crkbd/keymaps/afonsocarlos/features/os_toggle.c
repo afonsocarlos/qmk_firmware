@@ -1,7 +1,5 @@
-#include QMK_KEYBOARD_H
-
 #include "os_toggle.h"
-#include "os_detection.h"
+#include "definitions/keycodes.h"
 
 static os_t    os               = {.type = OS_UNSURE};
 static uint8_t detect_try_count = 0;

@@ -1,6 +1,6 @@
 #pragma once
 
-#include QMK_KEYBOARD_H
+#include "quantum_keycodes.h"
 
 enum custom_keycodes {
     KC_ATIL = SAFE_RANGE, // ã direct key
