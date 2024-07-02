@@ -24,6 +24,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include QMK_KEYBOARD_H
 
 #include "definitions/keycodes.h"
+#include "features/accents.h"
 #include "features/achordion.h"
 #include "features/os_toggle.h"
 #include "features/shortcuts.h"
@@ -152,82 +153,9 @@ uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
     return 500;  // Otherwise use a timeout of 800 ms.
 }
 
-
-bool process_special_characters(uint16_t keycode, keyrecord_t* record) {
-    if (!record->event.pressed) {
-        return true;
-    }
-
-    switch (keycode) {
-        // ã key
-        case KC_ATIL:
-            tap_code16(RALT(KC_A));
-            tap_code16(KC_TILD);
-            return false;
-        // á key
-        case KC_ACUT:
-            tap_code16(RALT(KC_A));
-            unregister_code16(KC_LSFT);
-            unregister_code16(KC_RSFT);
-            tap_code16(KC_QUOT);
-            return false;
-        // â key
-        case KC_ACIR:
-            tap_code16(RALT(KC_A));
-            tap_code16(KC_CIRC);
-            return false;
-        // ç key
-        case KC_CEDL:
-            tap_code16(RALT(KC_C));
-            tap_code16(KC_COMM);
-            return false;
-        // é key
-        case KC_ECUT:
-            tap_code16(RALT(KC_E));
-            unregister_code16(KC_LSFT);
-            unregister_code16(KC_RSFT);
-            tap_code16(KC_QUOT);
-            return false;
-        // ê key
-        case KC_ECIR:
-            tap_code16(RALT(KC_E));
-            tap_code16(KC_CIRC);
-            return false;
-        // õ key
-        case KC_OTIL:
-            tap_code16(RALT(KC_O));
-            tap_code16(KC_TILD);
-            return false;
-        // ó key
-        case KC_OCUT:
-            tap_code16(RALT(KC_O));
-            unregister_code16(KC_LSFT);
-            unregister_code16(KC_RSFT);
-            tap_code16(KC_QUOT);
-            return false;
-        // ô key
-        case KC_OCIR:
-            tap_code16(RALT(KC_O));
-            tap_code16(KC_CIRC);
-            return false;
-        // € key
-        case KC_EURO:
-            tap_code16(RALT(KC_E));
-            tap_code16(KC_EQUAL);
-            return false;
-        // ¢ key
-        case KC_CENT:
-            tap_code16(RALT(KC_C));
-            tap_code16(KC_PIPE);
-            return false;
-    }
-
-    return true;
-}
-
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     if (!process_achordion(keycode, record)) { return false; }
-    if (!process_special_characters(keycode, record)) { return false; }
+    if (!process_accents(keycode, record)) { return false; }
     if (!process_shortcuts(keycode, record)) { return false; }
     if (!process_os_toggle(keycode, record)) { return false; }
 
