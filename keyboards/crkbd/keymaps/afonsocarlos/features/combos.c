@@ -40,7 +40,7 @@ const uint16_t PROGMEM xcv_combo[]     = {KC_X, KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM cv_combo[]      = {KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM xv_combo[]      = {KC_X, KC_V, COMBO_END};
 const uint16_t PROGMEM nm_combo[]      = {KC_N, KC_M, COMBO_END};
-const uint16_t PROGMEM gui_del_combo[] = {KC_LGUI, ALT_DEL, COMBO_END};
+const uint16_t PROGMEM gui_del_combo[] = {OSM(MOD_LGUI), ALT_DEL, COMBO_END};
 
 
 combo_t key_combos[] = {
