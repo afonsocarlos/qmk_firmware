@@ -91,12 +91,12 @@ CTL_T(KC_CAPS), KC_WH_D, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX,                    
 
   // Extra one shot layer for accessing Function and accents keys
   [_FUNC_ACCENTS] = LAYOUT_split_3x6_3(
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       KC_F12,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                        KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_ACIR, KC_ATIL, KC_ACUT, KC_ECIR, KC_ECUT, XXXXXXX,                      XXXXXXX, XXXXXXX, KC_OCIR, KC_OTIL, KC_OCUT, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT, XXXXXXX, XXXXXXX, KC_CEDL, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_RSFT,
+  //,------------------------------------------------------.                    ,-----------------------------------------------------.
+        KC_F12,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                        KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,
+  //|--------+--------+--------+--------+--------+---------|                    |--------+--------+--------+--------+--------+--------|
+CTL_T(KC_ACIR), KC_ATIL, KC_ACUT, KC_ECIR, KC_ECUT, XXXXXXX,                      XXXXXXX, XXXXXXX, KC_OCIR, KC_OTIL, KC_OCUT, KC_RCTL,
+  //|--------+--------+--------+--------+--------+---------|                    |--------+--------+--------+--------+--------+--------|
+       KC_LSFT, XXXXXXX, XXXXXXX, KC_CEDL, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_RSFT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           KC_LGUI, TO(_BASE),  KC_LALT,     KC_ENT, _______, KC_RALT
                                       //`--------------------------'  `--------------------------'
@@ -178,7 +178,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
 }
 
 void post_process_record_user(uint16_t keycode, keyrecord_t* record) {
-    if (keycode != LTOSL_NUMS && !IS_MODIFIER_KEYCODE(keycode)) {
+    if (keycode != LTOSL_NUMS && keycode != CTL_T(KC_ACIR) && !IS_MODIFIER_KEYCODE(keycode)) {
         clear_oneshot_layer_state(ONESHOT_PRESSED);
     }
 }
