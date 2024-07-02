@@ -27,8 +27,7 @@ bool process_shortcuts(uint16_t keycode, keyrecord_t *record) {
             if (isMacOS) {
                 tap_code16(S(G(KC_W)));
             } else {
-                tap_code16(A(KC_F));
-                tap_code16(KC_F4);
+                tap_code16(A(KC_F4));
             }
             return false;
 
