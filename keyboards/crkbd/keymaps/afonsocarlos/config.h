@@ -29,6 +29,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PERMISSIVE_HOLD_PER_KEY
 #define COMBO_TERM 15
 
+#ifndef OS_DETECTION_ENABLE
+#define OS_DETECTION_ENABLE
+#endif // !OS_DETECTION_ENABLE
+
 // Mouse key speed and acceleration.
 #undef MOUSEKEY_DELAY
 #define MOUSEKEY_DELAY          0
