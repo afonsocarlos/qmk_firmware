@@ -69,11 +69,7 @@ bool process_shortcuts(uint16_t keycode, keyrecord_t *record) {
 
         // Save (Also TMuX prefix)
         case MC_SAVE:
-            if (isMacOS) {
-                tap_code16(G(KC_S));
-            } else {
-                tap_code16(C(KC_S));
-            }
+            tap_code16(C(KC_S));
             return false;
 
         // Select all
