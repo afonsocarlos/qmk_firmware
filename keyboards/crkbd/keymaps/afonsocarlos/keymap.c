@@ -204,6 +204,45 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     }
 }
 
+bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
+    switch(keycode) {
+        case GUI_T(KC_A):
+        case KC_SLSH:
+            return true;
+        default:
+            return false;
+    }
+}
+
+void autoshift_press_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
+    switch(keycode) {
+        case KC_SLSH:
+            register_code16((!shifted) ? KC_SLSH : KC_PIPE);
+            break;
+        default:
+            if (shifted) {
+                add_weak_mods(MOD_BIT(KC_LSFT));
+            }
+            // & 0xFF gets the Tap key for Tap Holds, required when using Retro Shift
+            // register_code16((IS_RETRO(keycode)) ? keycode & 0xFF : keycode);
+            register_code16(keycode);
+    }
+}
+
+void autoshift_release_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
+    switch(keycode) {
+        case KC_SLSH:
+            unregister_code16((!shifted) ? KC_SLSH : KC_PIPE);
+            break;
+        default:
+            // & 0xFF gets the Tap key for Tap Holds, required when using Retro Shift
+            // The IS_RETRO check isn't really necessary here, always using
+            // keycode & 0xFF would be fine.
+            // unregister_code16((IS_RETRO(keycode)) ? keycode & 0xFF : keycode);
+            unregister_code16(keycode);
+    }
+}
+
 const key_override_t pipe_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_SLSH, KC_PIPE);
 
 // This globally defines all key overrides to be used
