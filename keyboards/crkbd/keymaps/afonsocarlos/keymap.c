@@ -106,13 +106,13 @@ CTL_T(KC_CAPS), XXXXXXX, XXXXXXX, KC_CEDL, XXXXXXX, XXXXXXX,                    
   // Extra layer for Numpad and Gaming keys
   [_GAME_NUMPAD] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,   KC_F5,                       KC_NUM,   KC_P7,   KC_P8,   KC_P9, XXXXXXX, KC_BSPC,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_RCTL,    KC_A,    KC_S,    KC_D,    KC_F, XXXXXXX,                      XXXXXXX,   KC_P4,   KC_P5,   KC_P6, XXXXXXX, DF(_GAME_NUMPAD),
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX,   KC_P1,   KC_P2,   KC_P3, XXXXXXX, DF(_BASE),
+       KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,   KC_F5,                       KC_NUM,   KC_7,   KC_8,   KC_9,DF(_BASE), DF(_GAME_NUMPAD),
+  //|--------+--------+--------+--------+--------+--------|                    |--------+-------+-------+-------+--------+--------|
+      KC_RCTL,    KC_A,    KC_S,    KC_D,    KC_F, XXXXXXX,                      KC_PLUS,   KC_4,   KC_5,   KC_6, KC_MINS, XXXXXXX,
+  //|--------+--------+--------+--------+--------+--------|                    |--------+-------+-------+-------+--------+--------|
+      KC_LSFT,    KC_1,    KC_2,    KC_3,    KC_4, XXXXXXX,                      KC_ASTR,   KC_1,   KC_2,   KC_3, KC_SLSH, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI, XXXXXXX,  ALT_SPC,    _______,   KC_P0, KC_PDOT
+                                          KC_LGUI, XXXXXXX,  KC_SPC,    _______,   KC_PDOT, KC_0
                                       //`--------------------------'  `--------------------------'
   ),
 
