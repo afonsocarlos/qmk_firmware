@@ -19,7 +19,7 @@ bool process_accents(uint16_t keycode, keyrecord_t* record) {
             tap_code16(KC_QUOT);
             return false;
         // â key
-        case KC_ACIR:
+        case CTL_T(KC_ACIR):
             tap_code16(RALT(KC_A));
             tap_code16(KC_CIRC);
             return false;
