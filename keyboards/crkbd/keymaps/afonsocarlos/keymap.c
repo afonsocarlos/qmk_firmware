@@ -26,6 +26,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "definitions/keycodes.h"
 #include "features/accents.h"
 #include "features/achordion.h"
+#include "features/caps_line.h"
 #include "features/os_toggle.h"
 #include "features/shortcuts.h"
 #include "layers.h"
@@ -158,6 +159,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     if (!process_accents(keycode, record)) { return false; }
     if (!process_shortcuts(keycode, record)) { return false; }
     if (!process_os_toggle(keycode, record)) { return false; }
+    if (!process_caps_line(keycode, record)) { return false; }
 
     switch (keycode) {
         case LTOSL_NUMS:

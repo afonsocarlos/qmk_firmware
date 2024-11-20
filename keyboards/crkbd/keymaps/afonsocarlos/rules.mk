@@ -1,5 +1,6 @@
 SRC += features/accents.c
 SRC += features/achordion.c
+SRC += features/caps_line.c
 SRC += features/rgb_config.c
 SRC += features/oled_config.c
 SRC += features/os_toggle.c
