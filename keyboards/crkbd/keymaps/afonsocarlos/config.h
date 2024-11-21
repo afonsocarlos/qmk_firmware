@@ -28,6 +28,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
 #define PERMISSIVE_HOLD_PER_KEY
 #define COMBO_TERM 15
+#define COMBO_ONLY_FROM_LAYER 0
 
 #define AUTO_SHIFT_REPEAT
 #define RETRO_SHIFT

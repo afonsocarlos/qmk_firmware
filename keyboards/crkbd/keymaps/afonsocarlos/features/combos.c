@@ -2,65 +2,64 @@
 
 enum combos {
   QW_CLTAB,
-  QWE_CLWIN,
-  ER_RELOD,
-  WER_FCREL,
-  RT_OPTAB,
-  ERT_RETAB,
-  AS_SAVE,
-  LCTL_A_SELEC,
-  DF_FIND,
-  L_SCLN_LOCK,
-  LSFT_Z_REDO,
+  QWF_CLWIN,
+  LCTL_R_RELOD,
+  LCTL_RS_FCREL,
+  AR_SELEC,
+  ST_OPTAB,
+  RST_RETAB,
+  RS_SAVE,
+  WF_FIND,
+  LU_LOCK,
   ZX_UNDO,
-  XV_CUT,
+  ZXC_REDO,
+  XD_CUT,
   XC_COPY,
-  CV_PASTE,
-  XCV_PASTE_PRIMARY,
-  NM_OPWIN,
+  CD_PASTE,
+  XCD_PASTE_PRIMARY,
+  NE_OPWIN,
   GUI_DEL_MAINTENANCE,
   COMBO_LENGTH
 };
 uint16_t COMBO_LEN = COMBO_LENGTH;
 
 const uint16_t PROGMEM qw_combo[]      = {KC_Q, KC_W, COMBO_END};
-const uint16_t PROGMEM qwe_combo[]     = {KC_Q, KC_W, KC_E, COMBO_END};
-const uint16_t PROGMEM er_combo []     = {KC_E, KC_R, COMBO_END};
-const uint16_t PROGMEM wer_combo[]     = {KC_W, KC_E, KC_R, COMBO_END};
-const uint16_t PROGMEM rt_combo []     = {KC_R, KC_T, COMBO_END};
-const uint16_t PROGMEM ert_combo[]     = {KC_E, KC_R, KC_T, COMBO_END};
-const uint16_t PROGMEM as_combo[]      = {KC_A, KC_S, COMBO_END};
-const uint16_t PROGMEM lctl_a_selec[]  = {CTL_T(KC_ESC), KC_A, COMBO_END};
-const uint16_t PROGMEM df_combo[]      = {KC_D, KC_F, COMBO_END};
-const uint16_t PROGMEM l_scln_combo[]  = {KC_L, KC_SCLN, COMBO_END};
-const uint16_t PROGMEM lsft_z_combo[]  = {KC_LSFT, KC_Z, COMBO_END};
+const uint16_t PROGMEM qwf_combo[]     = {KC_Q, KC_W, KC_F, COMBO_END};
+const uint16_t PROGMEM lctl_r_combo [] = {CTL_T(KC_ESC), KC_R, COMBO_END};
+const uint16_t PROGMEM lctl_rs_combo[] = {CTL_T(KC_ESC), KC_A, KC_R, COMBO_END};
+const uint16_t PROGMEM st_combo []     = {KC_S, KC_T, COMBO_END};
+const uint16_t PROGMEM rst_combo[]     = {KC_R, KC_S, KC_T, COMBO_END};
+const uint16_t PROGMEM rs_combo[]      = {KC_R, KC_S, COMBO_END};
+const uint16_t PROGMEM ar_selec[]      = {KC_A, KC_R, COMBO_END};
+const uint16_t PROGMEM wf_combo[]      = {KC_W, KC_F, COMBO_END};
+const uint16_t PROGMEM lu_combo[]      = {KC_L, KC_U, COMBO_END};
 const uint16_t PROGMEM zx_combo[]      = {KC_Z, KC_X, COMBO_END};
+const uint16_t PROGMEM zxc_combo[]     = {KC_Z, KC_X, KC_C, COMBO_END};
 const uint16_t PROGMEM xc_combo[]      = {KC_X, KC_C, COMBO_END};
-const uint16_t PROGMEM xcv_combo[]     = {KC_X, KC_C, KC_V, COMBO_END};
-const uint16_t PROGMEM cv_combo[]      = {KC_C, KC_V, COMBO_END};
-const uint16_t PROGMEM xv_combo[]      = {KC_X, KC_V, COMBO_END};
-const uint16_t PROGMEM nm_combo[]      = {KC_N, KC_M, COMBO_END};
+const uint16_t PROGMEM xcd_combo[]     = {KC_X, KC_C, KC_D, COMBO_END};
+const uint16_t PROGMEM cd_combo[]      = {KC_C, KC_D, COMBO_END};
+const uint16_t PROGMEM xd_combo[]      = {KC_X, KC_D, COMBO_END};
+const uint16_t PROGMEM ne_combo[]      = {KC_N, KC_E, COMBO_END};
 const uint16_t PROGMEM gui_del_combo[] = {OSM(MOD_LGUI), ALT_DEL, COMBO_END};
 
 
 combo_t key_combos[] = {
   [QW_CLTAB] = COMBO(qw_combo, MC_CLTAB),
-  [QWE_CLWIN] = COMBO(qwe_combo, MC_CLWIN),
-  [ER_RELOD] = COMBO(er_combo, MC_RELOD),
-  [WER_FCREL] = COMBO(wer_combo, MC_FCREL),
-  [RT_OPTAB] = COMBO(rt_combo, MC_OPTAB),
-  [ERT_RETAB] = COMBO(ert_combo, MC_RETAB),
-  [AS_SAVE] = COMBO(as_combo, MC_SAVE),
-  [LCTL_A_SELEC] = COMBO(lctl_a_selec, MC_SELEC),
-  [DF_FIND] = COMBO(df_combo, MC_FIND),
-  [L_SCLN_LOCK] = COMBO(l_scln_combo, MC_LOCK),
-  [LSFT_Z_REDO] = COMBO(lsft_z_combo, MC_REDO),
+  [QWF_CLWIN] = COMBO(qwf_combo, MC_CLWIN),
+  [LCTL_R_RELOD] = COMBO(lctl_r_combo, MC_RELOD),
+  [LCTL_RS_FCREL] = COMBO(lctl_rs_combo, MC_FCREL),
+  [AR_SELEC] = COMBO(ar_selec, MC_SELEC),
+  [ST_OPTAB] = COMBO(st_combo, MC_OPTAB),
+  [RST_RETAB] = COMBO(rst_combo, MC_RETAB),
+  [RS_SAVE] = COMBO(rs_combo, MC_SAVE),
+  [WF_FIND] = COMBO(wf_combo, MC_FIND),
+  [LU_LOCK] = COMBO(lu_combo, MC_LOCK),
   [ZX_UNDO] = COMBO(zx_combo, MC_UNDO),
+  [ZXC_REDO] = COMBO(zxc_combo, MC_REDO),
   [XC_COPY] = COMBO(xc_combo, MC_COPY),
-  [XCV_PASTE_PRIMARY] = COMBO(xcv_combo, S(KC_INS)),
-  [CV_PASTE] = COMBO(cv_combo, MC_PASTE),
-  [XV_CUT] = COMBO(xv_combo, MC_CUT),
-  [NM_OPWIN] = COMBO(nm_combo, MC_OPWIN),
+  [XCD_PASTE_PRIMARY] = COMBO(xcd_combo, S(KC_INS)),
+  [CD_PASTE] = COMBO(cd_combo, MC_PASTE),
+  [XD_CUT] = COMBO(xd_combo, MC_CUT),
+  [NE_OPWIN] = COMBO(ne_combo, MC_OPWIN),
   [GUI_DEL_MAINTENANCE] = COMBO(gui_del_combo, TG(_MAINTENANCE)),
 };
-
