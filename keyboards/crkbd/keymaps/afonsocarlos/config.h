@@ -31,6 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define COMBO_ONLY_FROM_LAYER 0
 
 #define AUTO_SHIFT_REPEAT
+#define NO_AUTO_SHIFT_NUMERIC
 #define RETRO_SHIFT
 
 #ifndef OS_DETECTION_ENABLE
