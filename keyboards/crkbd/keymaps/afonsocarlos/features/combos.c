@@ -19,6 +19,8 @@ enum combos {
   XCD_PASTE_PRIMARY,
   NE_OPWIN,
   GUI_DEL_MAINTENANCE,
+  QWERT_LAYOUT,
+  ARST_LAYOUT,
   COMBO_LENGTH
 };
 uint16_t COMBO_LEN = COMBO_LENGTH;
@@ -41,6 +43,8 @@ const uint16_t PROGMEM cd_combo[]      = {KC_C, KC_D, COMBO_END};
 const uint16_t PROGMEM xd_combo[]      = {KC_X, KC_D, COMBO_END};
 const uint16_t PROGMEM ne_combo[]      = {KC_N, KC_E, COMBO_END};
 const uint16_t PROGMEM gui_del_combo[] = {OSM(MOD_LGUI), ALT_DEL, COMBO_END};
+const uint16_t PROGMEM qwert_combo[]   = {KC_Q, KC_W, KC_F, KC_P, COMBO_END};
+const uint16_t PROGMEM arst_combo[]    = {KC_A, KC_R, KC_S, KC_T, COMBO_END};
 
 
 combo_t key_combos[] = {
@@ -62,4 +66,6 @@ combo_t key_combos[] = {
   [XD_CUT] = COMBO(xd_combo, MC_CUT),
   [NE_OPWIN] = COMBO(ne_combo, MC_OPWIN),
   [GUI_DEL_MAINTENANCE] = COMBO(gui_del_combo, TG(_MAINTENANCE)),
+  [QWERT_LAYOUT] = COMBO(qwert_combo, DF(_QWERTY)),
+  [ARST_LAYOUT] = COMBO(arst_combo, DF(_BASE)),
 };
