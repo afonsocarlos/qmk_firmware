@@ -92,13 +92,13 @@ XXXXXXX,      MOD_LSFT, KC_UNDS, KC_MINS, KC_PLUS, XXXXXXX,                     
 
   [_SYS] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, KC_MRWD, XXXXXXX, KC_MFFD, KC_PSCR, XXXXXXX,
+      XXXXXXX, QK_BOOT,  EE_CLR, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, KC_MRWD, XXXXXXX, KC_MFFD, KC_PSCR, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX,                      KC_VOLU, KC_MPRV, KC_MPLY, KC_MNXT, KC_BRIU, XXXXXXX,
+      XXXXXXX, BT_PRF1, BT_PRF2, BT_PRF3, BT_PRF4, BT_UNPR,                      KC_VOLU, KC_MPRV, KC_MPLY, KC_MNXT, KC_BRIU, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX,                      KC_VOLD, KC_MUTE, XXXXXXX, XXXXXXX, KC_BRID, XXXXXXX,
+      XXXXXXX, RGB_TOG, RGB_HUI,  TG_WIN,  TG_MAC, TG_LINUX,                     KC_VOLD, KC_MUTE, XXXXXXX, XXXXXXX, KC_BRID, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI, _______,  KC_LALT,     KC_ENT, _______, KC_RALT
+                                          XXXXXXX, _______,  KC_LALT,     KC_ENT, _______, XXXXXXX
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -127,18 +127,6 @@ CTL_T(KC_CAPS), XXXXXXX, XXXXXXX, KC_CEDL, XXXXXXX, XXXXXXX,                    
                                           KC_LGUI, XXXXXXX,  KC_SPC,    _______,   KC_PDOT, KC_0
                                       //`--------------------------'  `--------------------------'
   ),
-
-  [_MAINTENANCE] = LAYOUT_split_3x6_3(
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX, QK_BOOT,  EE_CLR,  TG_WIN, XXXXXXX, XXXXXXX,                      XXXXXXX,TG_LINUX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                       TG_MAC, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          _______, XXXXXXX,  XXXXXXX,     XXXXXXX, XXXXXXX, _______
-                                      //`--------------------------'  `--------------------------'
-  )
 };
 
 bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
