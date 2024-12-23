@@ -1,23 +1,55 @@
 /*    COMBO NAME       , OUTPUT    , PARAMS    */
 
+/*---- TOP ROW HORIZONTAL----*/
+COMB(qwerty_layout_combo,    DF(_QWERTY),        KC_Q, KC_W, KC_F, KC_P)
+COMB(clwin_combo,            MC_CLWIN,           KC_Q, KC_W, KC_F)
+COMB(fcrel_combo,            KC_ESC,             KC_W, KC_F)
+COMB(swapwin_combo,          KC_NO,              KC_P, KC_B)
+
+COMB(bspc_combo,             KC_BSPC,            KC_L, KC_U)
+COMB(del_combo,              KC_DEL,             KC_U, KC_Y)
+COMB(bspc_word_combo,        A(KC_BSPC),         KC_L, KC_U, KC_Y)
+
+
+/*---- HOME ROW HORIZONTAL----*/
+COMB(colemak_layout_combo,   DF(_BASE),          HOME_A, HOME_R, HOME_S, HOME_T)
+COMB(save_combo,             C(KC_S),            HOME_R, HOME_S)
+COMB(tab_combo,              KC_TAB,             HOME_S, HOME_T)
+COMB(swaptab_combo,          KC_NO,              HOME_T, KC_G)
+
+COMB(lprn_combo,             KC_LPRN,            HOME_N, HOME_E)
+COMB(rprn_combo,             KC_RPRN,            HOME_E, HOME_I)
+
+
+/*---- BOTTOM ROW HORIZONTAL ----*/
 COMB(copy_combo,             MC_COPY,            KC_X, KC_C)
 COMB(cut_combo,              MC_CUT,             KC_X, KC_D)
 COMB(paste_combo,            MC_PASTE,           KC_C, KC_D)
 COMB(primary_combo,          S(KC_INS),          KC_X, KC_C, KC_D)
-COMB(clwin_combo,            MC_CLWIN,           LGUI_T(KC_Q), KC_W, KC_F)
-COMB(save_combo,             C(KC_S),            HOME_R, HOME_S)
-COMB(lock_combo,             MC_LOCK,            KC_L, KC_U)
-COMB(qwerty_layout_combo,    DF(_QWERTY),        LGUI_T(KC_Q), KC_W, KC_F, KC_P)
-COMB(colemak_layout_combo,   DF(_BASE),          HOME_A, HOME_R, HOME_S, HOME_T)
-COMB(tab_combo,              KC_TAB,             KC_F, KC_P)
-COMB(fcrel_combo,            KC_ESC,             HOME_A, HOME_R, HOME_S)
-COMB(lprn_combo,             KC_LPRN,            KC_U, KC_Y)
-COMB(rprn_combo,             KC_RPRN,            KC_Y, RGUI_T(KC_QUOT))
-COMB(lbrc_combo,             KC_LBRC,            HOME_E, HOME_I)
-COMB(rbrc_combo,             KC_RBRC,            HOME_I, HOME_O)
-COMB(unds_combo,             KC_UNDS,            KC_H, KC_COMM)
-COMB(lcbr_combo,             KC_MINS,            KC_COMM, KC_DOT)
-COMB(rcbr_combo,             KC_PLUS,            KC_DOT, RSFT_T(KC_SLSH))
-COMB(capsword_combo,         CW_TOGG,            LSFT_T(KC_Z), RSFT_T(KC_SLSH))
-COMB(swapwin_combo,          KC_NO,              KC_P, KC_B)
-COMB(swaptab_combo,          KC_NO,              HOME_T, KC_G)
+
+COMB(lbrc_combo,             KC_LBRC,            KC_H, KC_COMM)
+COMB(rbrc_combo,             KC_RBRC,            KC_COMM, KC_DOT)
+
+
+/*---- TOP ROW VERTICAL ----*/
+COMB(at_combo,               KC_AT,              KC_W, HOME_R)
+COMB(hash_combo,             KC_HASH,            KC_F, HOME_S)
+COMB(dollar_combo,           KC_DLR,             KC_P, HOME_T)
+COMB(percent_combo,          KC_PERC,            KC_B, KC_G)
+
+COMB(circ_combo,             KC_CIRC,            KC_J, KC_M)
+COMB(plus_combo,             KC_PLUS,            KC_L, HOME_N)
+COMB(asterisk_combo,         KC_ASTR,            KC_U, HOME_E)
+COMB(ampersand_combo,        KC_AMPR,            KC_Y, HOME_I)
+
+
+/*---- BOTTOM ROW VERTICAL ----*/
+COMB(backtick_combo,         KC_GRV,             HOME_R, KC_X)
+COMB(backslash_combo,        KC_BSLS,            HOME_S, KC_C)
+COMB(equal_combo,            KC_EQL,             HOME_T, KC_D)
+COMB(tilde_combo,            KC_TILD,            KC_G, KC_V)
+
+COMB(underscore_combo,       KC_UNDS,            KC_M, KC_K)
+COMB(minus_combo,            KC_MINS,            HOME_N, KC_H)
+COMB(slash_combo,            KC_SLSH,            HOME_E, KC_COMM)
+COMB(pipe_combo,             KC_PIPE,            HOME_I, KC_DOT)
