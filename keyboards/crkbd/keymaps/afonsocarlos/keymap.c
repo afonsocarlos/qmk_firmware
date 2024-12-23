@@ -80,11 +80,11 @@ XXXXXXX,      MOD_LSFT, KC_UNDS, KC_MINS, KC_PLUS, XXXXXXX,                     
 
   [_NAV] = LAYOUT_split_3x6_3(
    //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       XXXXXXX,MOD_LGUI, KC_BTN2, KC_MS_U, KC_BTN1, KC_WH_U,                      KC_HOME, KC_PGDN, KC_PGUP,  KC_END, QK_LLCK, XXXXXXX,
-   //|--------|--------+--------+--------+--------+--------+                    |--------+--------+--------+--------+--------+--------|
-       XXXXXXX,MOD_LCTL, KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_D,                      KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT, KC_RCTL, XXXXXXX,
-   //|--------|--------+--------+--------+--------+--------+                    |--------+--------+--------+--------+--------+--------|
-       XXXXXXX, KC_RSFT, KC_BTN4, KC_BTN3, KC_BTN5, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_RSFT, XXXXXXX,
+       XXXXXXX, KC_F12,   KC_F9,   KC_F8, KC_F7, XXXXXXX,                                               KC_HOME, KC_PGDN, KC_PGUP,  KC_END, QK_LLCK, XXXXXXX,
+   //|--------|------+--------+--------+--------+--------|                                            |--------+--------+--------+--------+--------+--------|
+       XXXXXXX, LGUI_T(KC_F11),LALT_T(KC_F6),LCTL_T(KC_F5),LSFT_T(KC_F4), XXXXXXX,                      KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT, KC_RCTL, XXXXXXX,
+   //|--------|------+--------+--------+--------+--------|                                            |--------+--------+--------+--------+--------+--------|
+       XXXXXXX, KC_F10,   KC_F3,   KC_F2, KC_F1, XXXXXXX,                                               XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_RSFT, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           XXXXXXX, KC_TAB, LT(_SYS,KC_SPC),     _______, OSM(MOD_LSFT), XXXXXXX
                                       //`--------------------------'  `--------------------------'
@@ -103,13 +103,13 @@ XXXXXXX,      MOD_LSFT, KC_UNDS, KC_MINS, KC_PLUS, XXXXXXX,                     
   ),
 
   // Extra one shot layer for accessing Function and accents keys
-  [_FUNC_ACCENTS] = LAYOUT_split_3x6_3(
-  //,------------------------------------------------------.                    ,-----------------------------------------------------.
-        KC_F12,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                        KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,
-  //|--------+--------+--------+--------+--------+---------|                    |--------+--------+--------+--------+--------+--------|
-CTL_T(KC_ACIR), KC_ATIL, KC_ACUT, KC_ECIR, KC_ECUT, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, KC_OCIR, KC_OTIL, CTL_T(KC_OCUT),
-  //|--------+--------+--------+--------+--------+---------|                    |--------+--------+--------+--------+--------+--------|
-CTL_T(KC_CAPS), XXXXXXX, XXXXXXX, KC_CEDL, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RCTL_T(KC_NUM),
+  [_MOUSE_FUNC] = LAYOUT_split_3x6_3(
+   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
+       XXXXXXX, KC_WH_U, KC_BTN2, KC_MS_U, KC_BTN1, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+   //|--------|--------+--------+--------+--------+ -------|                    |--------+--------+--------+--------+--------+--------|
+       XXXXXXX, KC_WH_D, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX,                      XXXXXXX, KC_RSFT, KC_RCTL, KC_RALT, KC_RGUI, XXXXXXX,
+   //|--------|--------+--------+--------+--------+ -------|                    |--------+--------+--------+--------+--------+--------|
+       XXXXXXX, XXXXXXX, KC_BTN4, KC_BTN3, KC_BTN5, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           XXXXXXX, _______, _______,     LT(_SYS,KC_ENT),  OSM(MOD_LSFT), XXXXXXX
                                       //`--------------------------'  `--------------------------'
