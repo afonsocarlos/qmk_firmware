@@ -50,7 +50,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|-------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
   XXXXXXX,        KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                         KC_K,    KC_H, KC_COMM,  KC_DOT,  KC_SLSH, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                        OSM(MOD_LGUI), LT(_NUMS,KC_TAB), ALT_SPC,     LT(_GAME_NUMPAD,KC_ENT), NAV_BSPC, ALT_DEL
+                    XXXXXXX, LT(_NUMS,KC_TAB), LT(_MOUSE_FUNC,KC_SPC),     LT(_NAV,KC_ENT), OSM(MOD_LSFT), XXXXXXX
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -86,7 +86,7 @@ XXXXXXX,      MOD_LSFT, KC_UNDS, KC_MINS, KC_PLUS, XXXXXXX,                     
    //|--------|--------+--------+--------+--------+--------+                    |--------+--------+--------+--------+--------+--------|
        XXXXXXX, KC_RSFT, KC_BTN4, KC_BTN3, KC_BTN5, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_RSFT, XXXXXXX,
    //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI, LT(_SYS,KC_ESC), KC_TAB,     KC_ENT, _______, KC_RALT
+                                          XXXXXXX, KC_TAB, LT(_SYS,KC_SPC),     _______, OSM(MOD_LSFT), XXXXXXX
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -111,7 +111,7 @@ CTL_T(KC_ACIR), KC_ATIL, KC_ACUT, KC_ECIR, KC_ECUT, XXXXXXX,                    
   //|--------+--------+--------+--------+--------+---------|                    |--------+--------+--------+--------+--------+--------|
 CTL_T(KC_CAPS), XXXXXXX, XXXXXXX, KC_CEDL, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RCTL_T(KC_NUM),
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI, TO(_BASE),  KC_LALT,     KC_ENT, _______, KC_RALT
+                                          XXXXXXX, _______, _______,     LT(_SYS,KC_ENT),  OSM(MOD_LSFT), XXXXXXX
                                       //`--------------------------'  `--------------------------'
   ),
 
