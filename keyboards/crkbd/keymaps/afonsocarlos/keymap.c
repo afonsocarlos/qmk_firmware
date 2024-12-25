@@ -179,6 +179,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     return true;
 }
 
+void caps_word_set_user(bool active) {
+    if (active) {
+        autoshift_disable();
+    }
+    else {
+        autoshift_enable();
+    }
+}
+
 void post_process_record_user(uint16_t keycode, keyrecord_t* record) {
     if (keycode != LTOSL_NUMS && keycode != CTL_T(KC_ACIR) && !IS_MODIFIER_KEYCODE(keycode)) {
         clear_oneshot_layer_state(ONESHOT_PRESSED);
