@@ -1,3 +1,5 @@
+#include "quantum.h"
+
 #include "os_toggle.h"
 #include "definitions/keycodes.h"
 
@@ -22,6 +24,11 @@ void try_detect_os(void) {
     }
     os.type = detected_host_os();
     detect_try_count++;
+
+    if(is_macos()) {
+        extern keymap_config_t keymap_config;
+        keymap_config.swap_lctl_lgui = keymap_config.swap_rctl_rgui = true;
+    }
 }
 
 bool process_os_toggle(uint16_t keycode, keyrecord_t *record) {
@@ -31,18 +38,24 @@ bool process_os_toggle(uint16_t keycode, keyrecord_t *record) {
         case TG_LINUX:
             if (record->event.pressed) {
                 os.type = OS_LINUX;
+                extern keymap_config_t keymap_config;
+                keymap_config.swap_lctl_lgui = keymap_config.swap_rctl_rgui = false;
             }
             return false;
 
         case TG_MAC:
             if (record->event.pressed) {
                 os.type = OS_MACOS;
+                extern keymap_config_t keymap_config;
+                keymap_config.swap_lctl_lgui = keymap_config.swap_rctl_rgui = true;
             }
             return false;
 
         case TG_WIN:
             if (record->event.pressed) {
                 os.type = OS_WINDOWS;
+                extern keymap_config_t keymap_config;
+                keymap_config.swap_lctl_lgui = keymap_config.swap_rctl_rgui = false;
             }
             return false;
     }
