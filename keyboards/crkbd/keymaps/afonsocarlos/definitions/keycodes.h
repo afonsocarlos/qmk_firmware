@@ -3,7 +3,22 @@
 #include "quantum_keycodes.h"
 
 enum custom_keycodes {
-    KC_ATIL = SAFE_RANGE, // ã direct key
+    SMTD_KEYCODES_BEGIN = SAFE_RANGE,
+
+    HOME_A,
+    HOME_R,
+    HOME_S,
+    HOME_T,
+
+    HOME_N,
+    HOME_E,
+    HOME_I,
+    HOME_O,
+
+    SMTD_KEYCODES_END,
+
+    // Accent keys
+    KC_ATIL, // ã direct key
     KC_ACUT, // á direct key
     KC_ACIR, // â direct key
     KC_CEDL, // ç direct key

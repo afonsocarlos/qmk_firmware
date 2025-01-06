@@ -23,23 +23,19 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "quantum.h"
 #include QMK_KEYBOARD_H
 
-#include "keymap.h"
 #include "definitions/keycodes.h"
 #include "features/accents.h"
-#include "features/achordion.h"
 #include "features/caps_line.h"
 #include "features/os_toggle.h"
 #include "features/shortcuts.h"
+#include "features/sm_td.h"
+#include "keymap.h"
 #include "layers.h"
 
 #define ALT_SPC LALT_T(KC_SPC)
 #define ALT_DEL RALT_T(KC_DEL)
 #define LTOSL_NUMS LT(_NUMS,OSL(_FUNC_ACCENTS))
 #define NAV_BSPC LT(_NAV,KC_BSPC)
-
-void matrix_scan_user(void) {
-  achordion_task();
-}
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_split_3x6_3(
@@ -129,33 +125,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 };
 
-bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
-                     uint16_t other_keycode, keyrecord_t* other_record) {
-    switch (tap_hold_keycode) {
-        case ALT_SPC:  // ALT + TAB and ALT + U.
-            if (other_keycode == KC_TAB ||
-                other_keycode == NAV_BSPC ||
-                other_keycode == KC_U ||
-                other_keycode == KC_DOT) {
-                return true;
-            }
-            return false;
+
+void on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap_count) {
+    switch (keycode) {
+        SMTD_MT(HOME_A, KC_A, HOME_GUI, 2)
+        SMTD_MT(HOME_R, KC_R, KC_LALT, 2)
+        SMTD_MT(HOME_S, KC_S, HOME_CTRL, 2)
+        SMTD_MT(HOME_T, KC_T, KC_LSFT, 2)
+
+        SMTD_MT(HOME_N, KC_N, KC_RSFT, 2)
+        SMTD_MT(HOME_E, KC_E, HOME_CTRL, 2)
+        SMTD_MT(HOME_I, KC_I, KC_RALT, 2)
+        SMTD_MT(HOME_O, KC_O, HOME_GUI, 2)
     }
-
-    return true;
-}
-
-uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
-    switch (tap_hold_keycode) {
-        case ALT_SPC:
-            return 100;  // Bypass Achordion for these keys.
-    }
-
-    return 500;  // Otherwise use a timeout of 800 ms.
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
-    if (!process_achordion(keycode, record)) { return false; }
+    if (!process_smtd(keycode, record)) { return false; }
     if (!process_accents(keycode, record)) { return false; }
     if (!process_shortcuts(keycode, record)) { return false; }
     if (!process_os_toggle(keycode, record)) { return false; }

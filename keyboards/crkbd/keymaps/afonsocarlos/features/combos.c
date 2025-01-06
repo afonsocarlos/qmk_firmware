@@ -1,4 +1,6 @@
 #include <stdint.h>
+#include "definitions/keycodes.h"
+#include "sm_td.h"
 #include "combos.h"
 
 bool first_press;
