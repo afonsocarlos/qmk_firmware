@@ -3,7 +3,7 @@
 enum custom_layers {
     _BASE,
     _QWERTY,
-    _FUNC_ACCENTS,
+    _MOUSE,
     _GAME_NUMPAD,
     _MAINTENANCE,
     _NUMS,

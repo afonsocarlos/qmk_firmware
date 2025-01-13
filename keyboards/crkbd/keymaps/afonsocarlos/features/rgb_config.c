@@ -91,7 +91,7 @@ layer_state_t default_layer_state_set_user(layer_state_t state) {
 layer_state_t layer_state_set_user(layer_state_t state) {
     rgblight_set_layer_state(NAV_LAYER, is_layer_active(state, _NAV));
     rgblight_set_layer_state(MAINTENANCE_LAYER, is_layer_active(state, _MAINTENANCE));
-    rgblight_set_layer_state(FUNC_ACCENTS_LAYER, is_layer_active(state, _FUNC_ACCENTS));
+    rgblight_set_layer_state(FUNC_ACCENTS_LAYER, is_layer_active(state, _MOUSE));
     rgblight_set_layer_state(GAME_NUMPAD_LAYER, is_layer_active(state, _GAME_NUMPAD));
     return state;
 }

@@ -34,7 +34,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define ALT_SPC LALT_T(KC_SPC)
 #define ALT_DEL RALT_T(KC_DEL)
-#define LTOSL_NUMS LT(_NUMS,OSL(_FUNC_ACCENTS))
+#define LTOSL_NUMS LT(_NUMS,OSL(_MOUSE))
 #define NAV_BSPC LT(_NAV,KC_BSPC)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -46,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|-------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
   XXXXXXX,        KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                         KC_K,    KC_H, KC_COMM,  KC_DOT,  KC_QUES, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                    XXXXXXX, LT(_NUMS,KC_TAB), LT(_MOUSE_FUNC,KC_SPC),     LT(_NAV,KC_ENT), OSM(MOD_LSFT), XXXXXXX
+                    XXXXXXX, LT(_NUMS,KC_TAB), LT(_MOUSE,KC_SPC),     LT(_NAV,KC_ENT), OSM(MOD_LSFT), XXXXXXX
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -99,7 +99,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   // Extra one shot layer for accessing Function and accents keys
-  [_MOUSE_FUNC] = LAYOUT_split_3x6_3(
+  [_MOUSE] = LAYOUT_split_3x6_3(
    //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        XXXXXXX, KC_WH_U, KC_BTN2, KC_MS_U, KC_BTN1, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
    //|--------|--------+--------+--------+--------+ -------|                    |--------+--------+--------+--------+--------+--------|
@@ -150,7 +150,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     switch (keycode) {
         case LTOSL_NUMS:
             if (record->tap.count && record->event.pressed) {
-                set_oneshot_layer(_FUNC_ACCENTS, ONESHOT_START);
+                set_oneshot_layer(_MOUSE, ONESHOT_START);
                 return false;
             }
             break;
