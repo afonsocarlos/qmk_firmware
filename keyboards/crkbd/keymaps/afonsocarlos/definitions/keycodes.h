@@ -36,6 +36,7 @@ enum custom_keycodes {
     KC_TARW,
 
     // Combo codes
+    MC_DELWRD,
     MC_CLWIN,
     MC_LOCK,
     MC_CUT,

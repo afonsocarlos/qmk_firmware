@@ -8,7 +8,7 @@ COMB(swapwin_combo,          KC_NO,              KC_P, KC_B)
 
 COMB(bspc_combo,             KC_BSPC,            KC_L, KC_U)
 COMB(del_combo,              KC_DEL,             KC_U, KC_Y)
-COMB(bspc_word_combo,        A(KC_BSPC),         KC_L, KC_U, KC_Y)
+COMB(del_word_combo,         MC_DELWRD,          KC_L, KC_U, KC_Y)
 
 
 /*---- HOME ROW HORIZONTAL----*/

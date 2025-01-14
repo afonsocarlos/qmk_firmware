@@ -13,6 +13,15 @@ bool process_shortcuts(uint16_t keycode, keyrecord_t *record) {
     bool isLinux = is_linux();
 
     switch (keycode) {
+        // Delete word
+        case MC_DELWRD:
+            if (isMacOS) {
+                tap_code16(A(KC_BSPC));
+            } else {
+                tap_code16(C(KC_BSPC));
+            }
+            return false;
+
         // Close Window
         case MC_CLWIN:
             if (isMacOS) {
