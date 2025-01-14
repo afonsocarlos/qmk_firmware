@@ -235,8 +235,20 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
 
 bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
     switch(keycode) {
-        case GUI_T(KC_A):
+        case HOME_A:
+        case HOME_R:
+        case HOME_S:
+        case HOME_T:
+
+        case HOME_N:
+        case HOME_E:
+        case HOME_I:
+        case HOME_O:
+        case KC_DLR:
         case KC_SLSH:
+        case KC_QUES:
+        case KC_LPRN:
+        case KC_RPRN:
             return true;
         default:
             return false;
@@ -245,8 +257,23 @@ bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
 
 void autoshift_press_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
     switch(keycode) {
+        case KC_COMM:
+            register_code16((!shifted) ? KC_COMM : KC_SCLN);
+            break;
+        case KC_DOT:
+            register_code16((!shifted) ? KC_DOT : KC_COLN);
+            break;
         case KC_SLSH:
             register_code16((!shifted) ? KC_SLSH : KC_PIPE);
+            break;
+        case KC_QUES:
+            register_code16((!shifted) ? KC_QUES : KC_EXLM);
+            break;
+        case KC_LPRN:
+            register_code16((!shifted) ? KC_LPRN : KC_LABK);
+            break;
+        case KC_RPRN:
+            register_code16((!shifted) ? KC_RPRN : KC_RABK);
             break;
         default:
             if (shifted) {
@@ -260,8 +287,23 @@ void autoshift_press_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
 
 void autoshift_release_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
     switch(keycode) {
+        case KC_COMM:
+            unregister_code16((!shifted) ? KC_COMM : KC_SCLN);
+            break;
+        case KC_DOT:
+            unregister_code16((!shifted) ? KC_DOT : KC_COLN);
+            break;
         case KC_SLSH:
             unregister_code16((!shifted) ? KC_SLSH : KC_PIPE);
+            break;
+        case KC_QUES:
+            unregister_code16((!shifted) ? KC_QUES : KC_EXLM);
+            break;
+        case KC_LPRN:
+            unregister_code16((!shifted) ? KC_LPRN : KC_LABK);
+            break;
+        case KC_RPRN:
+            unregister_code16((!shifted) ? KC_RPRN : KC_RABK);
             break;
         default:
             // & 0xFF gets the Tap key for Tap Holds, required when using Retro Shift
@@ -272,9 +314,15 @@ void autoshift_release_user(uint16_t keycode, bool shifted, keyrecord_t *record)
     }
 }
 
+const key_override_t semicolon_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_COMM, KC_SCLN);
+const key_override_t colon_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_DOT, KC_COLN);
 const key_override_t pipe_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_SLSH, KC_PIPE);
+const key_override_t question_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_QUES, KC_EXLM);
 
 // This globally defines all key overrides to be used
 const key_override_t *key_overrides[] = {
+    &semicolon_key_override,
+    &colon_key_override,
     &pipe_key_override
+    &question_key_override
 };
