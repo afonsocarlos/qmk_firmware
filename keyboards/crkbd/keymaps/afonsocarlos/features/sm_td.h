@@ -330,7 +330,7 @@ uint8_t smtd_active_states_size = 0;
 void smtd_press_following_key(smtd_state *state, bool release) {
     state->freeze = true;
     keyevent_t event_press = MAKE_KEYEVENT(state->following_key.row, state->following_key.col, true);
-    keyrecord_t record_press = {.event = event_press};
+    keyrecord_t record_press = {.event = event_press, .keycode = state->following_keycode};
     #ifdef SMTD_DEBUG_ENABLED
     if (release) {
         printf("FOLLOWING_TAP(%s) by %s in %s\n", keycode_to_string(state->following_keycode),
@@ -343,7 +343,7 @@ void smtd_press_following_key(smtd_state *state, bool release) {
     process_record(&record_press);
     if (release) {
         keyevent_t event_release = MAKE_KEYEVENT(state->following_key.row, state->following_key.col, false);
-        keyrecord_t record_release = {.event = event_release};
+        keyrecord_t record_release = {.event = event_release, .keycode = state->following_keycode};
         SMTD_SIMULTANEOUS_PRESSES_DELAY
         process_record(&record_release);
     }
