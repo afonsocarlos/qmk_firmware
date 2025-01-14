@@ -80,7 +80,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX,  HOME_0,  HOME_4,  HOME_5,  HOME_6, XXXXXXX,                      XXXXXXX, KC_RSFT, KC_RCTL, KC_RALT, KC_RGUI, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       XXXXXXX, XXXXXXX,   KC_1,    KC_2,    KC_3, XXXXXXX,                      KC_MINS,  KC_EQL, KC_LABK, KC_RABK, KC_BSLS, XXXXXXX,
+      XXXXXXX,  KC_DOT,    KC_1,    KC_2,    KC_3, XXXXXXX,                      KC_MINS, KC_TARW, KC_FARW, KC_DCLN, KC_SLSH, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                       XXXXXXX, _______,  LTMOUS_SPC,     LT(_NAV,KC_ENT), OSM(MOD_LSFT), XXXXXXX
                                       //`--------------------------'  `--------------------------'
@@ -170,6 +170,30 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
         case CTL_T(KC_TILD):
             if (record->tap.count && record->event.pressed) {
                 tap_code16(KC_TILD);
+                return false;
+            }
+            break;
+        case LT(_NUMS,NUMWORD):
+            if (record->tap.count && record->event.pressed) {
+                enable_num_word();
+                return false;
+            }
+            break;
+        case KC_DCLN:
+            if (record->event.pressed) {
+                SEND_STRING("::");
+                return false;
+            }
+            break;
+        case KC_FARW:
+            if (record->event.pressed) {
+                SEND_STRING("=>");
+                return false;
+            }
+            break;
+        case KC_TARW:
+            if (record->event.pressed) {
+                SEND_STRING("->");
                 return false;
             }
             break;

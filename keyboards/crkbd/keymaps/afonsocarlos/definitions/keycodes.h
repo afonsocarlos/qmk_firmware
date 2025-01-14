@@ -30,6 +30,11 @@ enum custom_keycodes {
     KC_CENT,  // ¢ direct key
     KC_EURO,  // € direct key
 
+    // Composite keys
+    KC_DCLN,
+    KC_FARW,
+    KC_TARW,
+
     // Combo codes
     MC_CLWIN,
     MC_LOCK,
