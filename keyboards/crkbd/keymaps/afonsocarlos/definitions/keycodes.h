@@ -38,6 +38,7 @@ enum custom_keycodes {
     MC_PASTE,
 
     // Toggle codes
+    NUMWORD,
     TG_LINUX,
     TG_MAC,
     TG_WIN,

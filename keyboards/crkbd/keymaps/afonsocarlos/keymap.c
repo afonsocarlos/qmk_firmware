@@ -26,6 +26,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "definitions/keycodes.h"
 #include "features/accents.h"
 #include "features/caps_line.h"
+#include "features/num_word.h"
 #include "features/os_toggle.h"
 #include "features/shortcuts.h"
 #include "features/sm_td.h"
@@ -46,7 +47,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|-------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
   XXXXXXX,        KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                         KC_K,    KC_H, KC_COMM,  KC_DOT,  KC_QUES, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                    XXXXXXX, LT(_NUMS,KC_TAB), LT(_MOUSE,KC_SPC),     LT(_NAV,KC_ENT), OSM(MOD_LSFT), XXXXXXX
+                    XXXXXXX, LT(_NUMS,NUMWORD), LT(_MOUSE,KC_SPC),     LT(_NAV,KC_ENT), OSM(MOD_LSFT), XXXXXXX
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -146,6 +147,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     if (!process_shortcuts(keycode, record)) { return false; }
     if (!process_os_toggle(keycode, record)) { return false; }
     if (!process_caps_line(keycode, record)) { return false; }
+    if (!process_record_num_word(keycode, record)) { return false; }
 
     switch (keycode) {
         case LTOSL_NUMS:
