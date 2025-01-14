@@ -51,5 +51,5 @@ COMB(tilde_combo,            KC_TILD,            KC_G, KC_V)
 
 COMB(underscore_combo,       KC_UNDS,            KC_M, KC_K)
 COMB(minus_combo,            KC_MINS,            HOME_N, KC_H)
-COMB(slash_combo,            KC_SLSH,            HOME_E, KC_COMM)
-COMB(pipe_combo,             KC_PIPE,            HOME_I, KC_DOT)
+COMB(question_combo,         KC_QUES,            HOME_E, KC_COMM)
+COMB(exclamation_combo,      KC_EXLM,            HOME_I, KC_DOT)
