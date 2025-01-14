@@ -46,6 +46,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define ALT_SPC LALT_T(KC_SPC)
 #define ALT_DEL RALT_T(KC_DEL)
 #define LTOSL_NUMS LT(_NUMS,OSL(_MOUSE))
+#define LTMOUS_SPC LT(_MOUSE,KC_SPC)
 #define NAV_BSPC LT(_NAV,KC_BSPC)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -57,7 +58,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|-------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX,    KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                         KC_K,    KC_H, KC_COMM,  KC_DOT,  KC_SLSH, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                            XXXXXXX, LT(_NUMS,NUMWORD), LT(_MOUSE,KC_SPC),     LT(_NAV,KC_ENT), OSM(MOD_LSFT), XXXXXXX
+                            XXXXXXX, LT(_NUMS,NUMWORD), LTMOUS_SPC,     LT(_NAV,KC_ENT), OSM(MOD_LSFT), XXXXXXX
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -81,7 +82,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        XXXXXXX, XXXXXXX,   KC_1,    KC_2,    KC_3, XXXXXXX,                      KC_MINS,  KC_EQL, KC_LABK, KC_RABK, KC_BSLS, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                      XXXXXXX, _______,  KC_LALT,     KC_ENT, OSM(MOD_LSFT), XXXXXXX
+                                      XXXXXXX, _______,  LTMOUS_SPC,     LT(_NAV,KC_ENT), OSM(MOD_LSFT), XXXXXXX
                                       //`--------------------------'  `--------------------------'
   ),
 
