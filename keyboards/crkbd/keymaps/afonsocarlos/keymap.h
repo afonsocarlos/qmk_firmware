@@ -2,14 +2,17 @@
 
 #include QMK_KEYBOARD_H
 
-// Left-hand home row mods
-#define HOME_A LGUI_T(KC_A)
-#define HOME_R LALT_T(KC_R)
-#define HOME_S LCTL_T(KC_S)
-#define HOME_T LSFT_T(KC_T)
+#include "layers.h"
 
-// Right-hand home row mods
-#define HOME_O RGUI_T(KC_O)
-#define HOME_I LALT_T(KC_I)
-#define HOME_E RCTL_T(KC_E)
-#define HOME_N RSFT_T(KC_N)
+#define HOME_0 LGUI_T(KC_0)
+#define HOME_4 LALT_T(KC_4)
+#define HOME_5 LCTL_T(KC_5)
+#define HOME_6 LSFT_T(KC_6)
+#define HOME_F4 LALT_T(KC_F4)
+#define HOME_F5 LCTL_T(KC_F5)
+#define HOME_F6 LSFT_T(KC_F6)
+
+#define LTMOUS_SPC LT(_MOUSE,KC_SPC)
+#define LTNUMWORD LT(_NUMS,NUMWORD)
+#define LTNAV_ENT LT(_NAV,KC_ENT)
+#define OSM_LSFT OSM(MOD_LSFT)

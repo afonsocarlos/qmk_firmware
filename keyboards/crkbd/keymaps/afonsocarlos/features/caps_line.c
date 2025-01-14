@@ -1,11 +1,9 @@
 #include "caps_line.h"
-#include "keycodes.h"
 #include "quantum_keycodes.h"
-#include "modifiers.h"
 #include "timer.h"
 #include "action_tapping.h"
 
-#include "layers.h"
+#include "keymap.h"
 
 static bool caps_line_active = false;
 
@@ -42,13 +40,13 @@ bool is_caps_line_on(void) {
 bool process_caps_line(uint16_t keycode, keyrecord_t* record) {
     // Double tapping left shift turns on Caps Word.
     //
-    // NOTE: This works with KC_LSFT and one-shot left shift. It
+    // NOTE: This works with OSM_LSFT and one-shot left shift. It
     // wouldn't make sense with mod-tap or Space Cadet shift since
     // double tapping would of course trigger the tapping action.
     if (record->event.pressed) {
         static bool     tapped = false;
         static uint16_t timer  = 0;
-        if (keycode == KC_LSFT || keycode == OSM(MOD_LSFT)) {
+        if (keycode == OSM_LSFT) {
             if (tapped && !timer_expired(record->event.time, timer)) {
                 // Left shift was double tapped, activate Caps Word.
                 caps_line_toggle();
@@ -71,8 +69,8 @@ bool process_caps_line(uint16_t keycode, keyrecord_t* record) {
 __attribute__((weak)) bool caps_line_press_user(uint16_t keycode) {
     switch (keycode) {
         // Keycodes that continue Caps Word, with shift applied.
-        case CTL_T(KC_ESC):
-        case LT(_GAME_NUMPAD,KC_ENT):
+        case KC_ESC:
+        case LTNAV_ENT:
         case KC_TAB:
             return false; // Deactivate Caps Word.
         default:

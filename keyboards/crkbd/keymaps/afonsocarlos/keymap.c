@@ -35,19 +35,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define HOME_CTRL is_macos() ? KC_LGUI : KC_LCTL
 #define HOME_GUI is_macos() ? KC_LCTL : KC_LGUI
-#define HOME_0 LGUI_T(KC_0)
-#define HOME_4 LALT_T(KC_4)
-#define HOME_5 LCTL_T(KC_5)
-#define HOME_6 LSFT_T(KC_6)
-#define HOME_F4 LALT_T(KC_F4)
-#define HOME_F5 LCTL_T(KC_F5)
-#define HOME_F6 LSFT_T(KC_F6)
-
-#define ALT_SPC LALT_T(KC_SPC)
-#define ALT_DEL RALT_T(KC_DEL)
-#define LTOSL_NUMS LT(_NUMS,OSL(_MOUSE))
-#define LTMOUS_SPC LT(_MOUSE,KC_SPC)
-#define NAV_BSPC LT(_NAV,KC_BSPC)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_split_3x6_3(
@@ -58,7 +45,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|-------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX,    KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                         KC_K,    KC_H, KC_COMM,  KC_DOT,  KC_SLSH, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                            XXXXXXX, LT(_NUMS,NUMWORD), LTMOUS_SPC,     LT(_NAV,KC_ENT), OSM(MOD_LSFT), XXXXXXX
+                            XXXXXXX, LTNUMWORD, LTMOUS_SPC,     LTNAV_ENT, OSM_LSFT, XXXXXXX
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -70,7 +57,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+------+--------+-----+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
   XXXXXXX,LSFT_T(KC_Z),    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                        OSM(MOD_LGUI), LTOSL_NUMS, ALT_SPC,     LT(_GAME_NUMPAD,KC_ENT), NAV_BSPC, ALT_DEL
+                                        XXXXXXX, LTNUMWORD, LTMOUS_SPC,     LTNAV_ENT, OSM_LSFT, XXXXXXX
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -82,7 +69,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX,  KC_DOT,    KC_1,    KC_2,    KC_3, XXXXXXX,                      KC_MINS, KC_TARW, KC_FARW, KC_DCLN, KC_SLSH, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                      XXXXXXX, _______,  LTMOUS_SPC,     LT(_NAV,KC_ENT), OSM(MOD_LSFT), XXXXXXX
+                                      XXXXXXX, _______,  LTMOUS_SPC,     LTNAV_ENT, OSM_LSFT, XXXXXXX
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -94,7 +81,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX, XXXXXXX,   KC_F1,   KC_F2,   KC_F3, KC_F12,                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_RSFT, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, KC_TAB, LT(_SYS,KC_SPC),     _______, OSM(MOD_LSFT), XXXXXXX
+                                          XXXXXXX, KC_TAB, LT(_SYS,KC_SPC),     _______, OSM_LSFT, XXXXXXX
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -119,7 +106,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    //|--------|--------+--------+--------+--------+ -------|                    |--------+--------+--------+--------+--------+--------|
        XXXXXXX, XXXXXXX, KC_BTN4, KC_BTN3, KC_BTN5, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, _______, _______,     LT(_SYS,KC_ENT),  OSM(MOD_LSFT), XXXXXXX
+                                          XXXXXXX, _______, _______,     LT(_SYS,KC_ENT),  OSM_LSFT, XXXXXXX
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -161,19 +148,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     if (!process_record_num_word(keycode, record)) { return false; }
 
     switch (keycode) {
-        case LTOSL_NUMS:
-            if (record->tap.count && record->event.pressed) {
-                set_oneshot_layer(_MOUSE, ONESHOT_START);
-                return false;
-            }
-            break;
         case CTL_T(KC_TILD):
             if (record->tap.count && record->event.pressed) {
                 tap_code16(KC_TILD);
                 return false;
             }
             break;
-        case LT(_NUMS,NUMWORD):
+        case LTNUMWORD:
             if (record->tap.count && record->event.pressed) {
                 enable_num_word();
                 return false;
