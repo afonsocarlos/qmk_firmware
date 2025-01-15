@@ -10,7 +10,6 @@ bool process_shortcuts(uint16_t keycode, keyrecord_t *record) {
     }
 
     bool isMacOS = is_macos();
-    bool isLinux = is_linux();
 
     switch (keycode) {
         // Delete word
@@ -62,8 +61,6 @@ bool process_shortcuts(uint16_t keycode, keyrecord_t *record) {
         case MC_PASTE:
             if (isMacOS) {
                 tap_code16(G(KC_V));
-            } else if (isLinux) {
-                tap_code16(S(C(KC_V)));
             } else {
                 tap_code16(C(KC_V));
             }
