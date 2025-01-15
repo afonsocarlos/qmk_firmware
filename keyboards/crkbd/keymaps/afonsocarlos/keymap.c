@@ -139,6 +139,19 @@ void on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap_count) {
     }
 }
 
+uint32_t get_smtd_timeout(uint16_t keycode, smtd_timeout timeout) {
+    switch (keycode) {
+        case HOME_A:
+        case HOME_I:
+        case HOME_O:
+            if (timeout == SMTD_TIMEOUT_TAP) return 300;
+            if (timeout == SMTD_TIMEOUT_RELEASE) return 10;
+            if (timeout == SMTD_TIMEOUT_SEQUENCE) return 150;
+    }
+
+    return get_smtd_timeout_default(timeout);
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     if (!process_smtd(keycode, record)) { return false; }
     if (!process_accents(keycode, record)) { return false; }
