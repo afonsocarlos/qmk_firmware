@@ -1,6 +1,5 @@
 #include <stdint.h>
 #include "definitions/keycodes.h"
-#include "sm_td.h"
 #include "combos.h"
 
 bool first_press;
@@ -17,17 +16,9 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
         case C_swaptab_combo:
             if (pressed) {
                 first_press = true;
-                if(is_macos()) {
-                    register_mods(MOD_LGUI);
-                }else{
-                    register_mods(MOD_LCTL);
-                }
+                register_mods(MOD_LCTL);
             } else {
-                if(is_macos()) {
-                    unregister_mods(MOD_LGUI);
-                }else{
-                    unregister_mods(MOD_LCTL);
-                }
+                unregister_mods(MOD_LCTL);
             }
             break;
     }
@@ -87,3 +78,22 @@ bool process_combo_key_repress(uint16_t combo_index, combo_t *combo, uint8_t key
     return false;
 }
 
+#ifdef COMBO_MUST_TAP_PER_COMBO
+bool get_combo_must_tap(uint16_t combo_index, combo_t *combo) {
+    // If you want *all* combos, that have Mod-Tap/Layer-Tap/Momentary keys in its chord, to be tap-only, this is for you:
+    uint16_t key;
+    uint8_t idx = 0;
+    while ((key = pgm_read_word(&combo->keys[idx])) != COMBO_END) {
+        switch (key) {
+            case HOME_A...HOME_O:
+            case QK_MOD_TAP...QK_MOD_TAP_MAX:
+            case QK_LAYER_TAP...QK_LAYER_TAP_MAX:
+            case QK_MOMENTARY...QK_MOMENTARY_MAX:
+                return true;
+        }
+        idx += 1;
+    }
+    return false;
+
+}
+#endif
