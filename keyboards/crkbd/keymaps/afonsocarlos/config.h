@@ -35,8 +35,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define AUTO_SHIFT_REPEAT
 #define NO_AUTO_SHIFT_NUMERIC
 
-#define COMBO_TERM 15
+#define COMBO_TERM 30
 #define COMBO_ONLY_FROM_LAYER 0
+#define COMBO_PROCESS_KEY_RELEASE
+#define COMBO_PROCESS_KEY_REPRESS
+#define COMBO_MUST_TAP_PER_COMBO
 
 #ifndef OS_DETECTION_ENABLE
 #define OS_DETECTION_ENABLE
