@@ -240,6 +240,9 @@ typedef struct {
     /** The keycode of the key that was pressed after macro was pressed */
     uint16_t following_keycode;
 
+    /** The keycode of the macro key */
+    keyevent_type_t following_keyevent_type;
+
     /** The timeout of current stage */
     deferred_token timeout;
 
@@ -257,6 +260,7 @@ typedef struct {
         .sequence_len = 0,                  \
         .following_key = MAKE_KEYPOS(0, 0), \
         .following_keycode = 0,             \
+        .following_keyevent_type = 0,           \
         .timeout = INVALID_DEFERRED_TOKEN,  \
         .stage = SMTD_STAGE_NONE,           \
         .freeze = false                     \
@@ -330,7 +334,10 @@ uint8_t smtd_active_states_size = 0;
 void smtd_press_following_key(smtd_state *state, bool release) {
     state->freeze = true;
     keyevent_t event_press = MAKE_KEYEVENT(state->following_key.row, state->following_key.col, true);
-    keyrecord_t record_press = {.event = event_press, .keycode = state->following_keycode};
+    keyrecord_t record_press = {.event = event_press};
+    if (state->following_keyevent_type == COMBO_EVENT) {
+        record_press.keycode = state->following_keycode;
+    }
     #ifdef SMTD_DEBUG_ENABLED
     if (release) {
         printf("FOLLOWING_TAP(%s) by %s in %s\n", keycode_to_string(state->following_keycode),
@@ -343,7 +350,10 @@ void smtd_press_following_key(smtd_state *state, bool release) {
     process_record(&record_press);
     if (release) {
         keyevent_t event_release = MAKE_KEYEVENT(state->following_key.row, state->following_key.col, false);
-        keyrecord_t record_release = {.event = event_release, .keycode = state->following_keycode};
+        keyrecord_t record_release = {.event = event_release};
+        if (state->following_keyevent_type == COMBO_EVENT) {
+            record_press.keycode = state->following_keycode;
+        }
         SMTD_SIMULTANEOUS_PRESSES_DELAY
         process_record(&record_release);
     }
@@ -419,6 +429,7 @@ void smtd_next_stage(smtd_state *state, smtd_stage next_stage) {
                     smtd_active_states[j].sequence_len = smtd_active_states[j + 1].sequence_len;
                     smtd_active_states[j].following_key = smtd_active_states[j + 1].following_key;
                     smtd_active_states[j].following_keycode = smtd_active_states[j + 1].following_keycode;
+                    smtd_active_states[j].following_keyevent_type = smtd_active_states[j + 1].following_keyevent_type;
                     smtd_active_states[j].timeout = smtd_active_states[j + 1].timeout;
                     smtd_active_states[j].stage = smtd_active_states[j + 1].stage;
                     smtd_active_states[j].freeze = smtd_active_states[j + 1].freeze;
@@ -432,6 +443,7 @@ void smtd_next_stage(smtd_state *state, smtd_stage next_stage) {
                 last_state->sequence_len = 0;
                 last_state->following_key = MAKE_KEYPOS(0, 0);
                 last_state->following_keycode = 0;
+                last_state->following_keyevent_type = 0;
                 last_state->timeout = INVALID_DEFERRED_TOKEN;
                 last_state->stage = SMTD_STAGE_NONE;
                 last_state->freeze = false;
@@ -498,6 +510,7 @@ bool process_smtd_state(uint16_t keycode, keyrecord_t *record, smtd_state *state
             if (keycode != state->macro_keycode && record->event.pressed) {
                 state->following_key = record->event.key;
                 state->following_keycode = keycode;
+                state->following_keyevent_type = record->event.type;
                 smtd_next_stage(state, SMTD_STAGE_FOLLOWING_TOUCH);
                 return false;
             }
