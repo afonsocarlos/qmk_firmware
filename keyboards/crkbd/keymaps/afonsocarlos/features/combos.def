@@ -17,8 +17,10 @@ COMB(save_combo,             C(KC_S),            HOME_R, HOME_S)
 COMB(tab_combo,              KC_TAB,             HOME_S, HOME_T)
 COMB(swaptab_combo,          KC_NO,              HOME_T, KC_G)
 
+COMB(labk_combo,             KC_LABK,            KC_M, HOME_N)
 COMB(lprn_combo,             KC_LPRN,            HOME_N, HOME_E)
 COMB(rprn_combo,             KC_RPRN,            HOME_E, HOME_I)
+COMB(rabk_combo,             KC_RABK,            HOME_I, HOME_O)
 
 
 /*---- BOTTOM ROW HORIZONTAL ----*/
@@ -27,8 +29,10 @@ COMB(cut_combo,              MC_CUT,             KC_X, KC_D)
 COMB(paste_combo,            MC_PASTE,           KC_C, KC_D)
 COMB(primary_combo,          S(KC_INS),          KC_X, KC_C, KC_D)
 
+COMB(lcbr_combo,             KC_LCBR,            KC_K, KC_H)
 COMB(lbrc_combo,             KC_LBRC,            KC_H, KC_COMM)
 COMB(rbrc_combo,             KC_RBRC,            KC_COMM, KC_DOT)
+COMB(rcbr_combo,             KC_RCBR,            KC_DOT, KC_SLSH)
 
 
 /*---- TOP ROW VERTICAL ----*/
