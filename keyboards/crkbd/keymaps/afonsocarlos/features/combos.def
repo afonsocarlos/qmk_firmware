@@ -9,6 +9,7 @@ COMB(swapwin_combo,          KC_NO,              KC_P, KC_B)
 COMB(bspc_combo,             KC_BSPC,            KC_L, KC_U)
 COMB(del_combo,              KC_DEL,             KC_U, KC_Y)
 COMB(del_word_combo,         MC_DELWRD,          KC_L, KC_U, KC_Y)
+COMB(lock_combo,             MC_LOCK,            KC_Y, KC_QUOT)
 
 
 /*---- HOME ROW HORIZONTAL----*/
@@ -57,3 +58,7 @@ COMB(underscore_combo,       KC_UNDS,            KC_M, KC_K) // _
 COMB(minus_combo,            KC_MINS,            HOME_N, KC_H) // -
 COMB(question_combo,         KC_QUES,            HOME_E, KC_COMM) // ?
 COMB(exclamation_combo,      KC_EXLM,            HOME_I, KC_DOT) // !
+
+
+/*---- BOTH HANDS ----*/
+COMB(capsword_combo,         CW_TOGG,            HOME_T, HOME_N)
