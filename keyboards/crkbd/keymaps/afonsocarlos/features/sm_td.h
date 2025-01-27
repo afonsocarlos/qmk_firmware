@@ -335,6 +335,9 @@ void smtd_press_following_key(smtd_state *state, bool release) {
     state->freeze = true;
     keyevent_t event_press = MAKE_KEYEVENT(state->following_key.row, state->following_key.col, true);
     keyrecord_t record_press = {.event = event_press};
+    if (release) {
+        record_press.tap.count = 1;
+    }
     if (state->following_keyevent_type == COMBO_EVENT) {
         record_press.event = MAKE_COMBOEVENT(true);
         record_press.keycode = state->following_keycode;
@@ -351,7 +354,7 @@ void smtd_press_following_key(smtd_state *state, bool release) {
     process_record(&record_press);
     if (release) {
         keyevent_t event_release = MAKE_KEYEVENT(state->following_key.row, state->following_key.col, false);
-        keyrecord_t record_release = {.event = event_release};
+        keyrecord_t record_release = {.event = event_release, .tap = {.count = 1}};
         if (state->following_keyevent_type == COMBO_EVENT) {
             record_release.event = MAKE_COMBOEVENT(false);
             record_release.keycode = state->following_keycode;
