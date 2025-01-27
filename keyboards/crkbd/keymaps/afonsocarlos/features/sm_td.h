@@ -336,6 +336,7 @@ void smtd_press_following_key(smtd_state *state, bool release) {
     keyevent_t event_press = MAKE_KEYEVENT(state->following_key.row, state->following_key.col, true);
     keyrecord_t record_press = {.event = event_press};
     if (state->following_keyevent_type == COMBO_EVENT) {
+        record_press.event = MAKE_COMBOEVENT(true);
         record_press.keycode = state->following_keycode;
     }
     #ifdef SMTD_DEBUG_ENABLED
@@ -352,7 +353,8 @@ void smtd_press_following_key(smtd_state *state, bool release) {
         keyevent_t event_release = MAKE_KEYEVENT(state->following_key.row, state->following_key.col, false);
         keyrecord_t record_release = {.event = event_release};
         if (state->following_keyevent_type == COMBO_EVENT) {
-            record_press.keycode = state->following_keycode;
+            record_release.event = MAKE_COMBOEVENT(false);
+            record_release.keycode = state->following_keycode;
         }
         SMTD_SIMULTANEOUS_PRESSES_DELAY
         process_record(&record_release);
