@@ -12,7 +12,7 @@ void caps_line_on(void) {
         return;
     }
 
-    register_code(KC_CAPS_LOCK);
+    tap_code(KC_CAPS_LOCK);
     caps_line_active = true;
 }
 
@@ -21,7 +21,7 @@ void caps_line_off(void) {
         return;
     }
 
-    register_code(KC_CAPS_LOCK);
+    tap_code(KC_CAPS_LOCK);
     caps_line_active = false;
 }
 
