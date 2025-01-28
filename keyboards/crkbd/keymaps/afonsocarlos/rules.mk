@@ -1,5 +1,4 @@
 SRC += features/accents.c
-SRC += features/achordion.c
 SRC += features/caps_line.c
 SRC += features/num_word.c
 SRC += features/oled_config.c
@@ -8,6 +7,7 @@ SRC += features/rgb_config.c
 SRC += features/shortcuts.c
 
 AUTO_SHIFT_ENABLE    = yes
+BOOTMAGIC_ENABLE     = yes
 CAPS_WORD_ENABLE     = yes
 COMBO_ENABLE         = yes
 KEY_OVERRIDE_ENABLE  = yes
@@ -20,7 +20,6 @@ RGBLIGHT_ENABLE      = yes
 #Dont use
 AUDIO_ENABLE       = no
 BLUETOOTH_ENABLE   = no
-BOOTMAGIC_ENABLE   = no
 COMMAND_ENABLE     = no
 CONSOLE_ENABLE     = no
 GRAVE_ESC_ENABLE   = no
