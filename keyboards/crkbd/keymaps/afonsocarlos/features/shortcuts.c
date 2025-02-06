@@ -4,67 +4,32 @@
 #include "os_toggle.h"
 #include "shortcuts.h"
 
+#define OS_TAP(macro_key, mac_tap_key, linux_tap_key)             \
+    case macro_key:                                               \
+        if (record->event.pressed) {                              \
+            tap_code16(is_macos() ? mac_tap_key : linux_tap_key); \
+            return false;                                         \
+        }
+
 bool process_shortcuts(uint16_t keycode, keyrecord_t *record) {
-    if (!record->event.pressed) {
-        return true;
-    }
-
-    bool isMacOS = is_macos();
-
     switch (keycode) {
-        // Delete word
-        case MC_DELWRD:
-            if (isMacOS) {
-                tap_code16(A(KC_BSPC));
-            } else {
-                tap_code16(C(KC_BSPC));
-            }
-            return false;
-
         // Close Window
-        case MC_CLWIN:
-            if (isMacOS) {
-                tap_code16(S(G(KC_W)));
-            } else {
-                tap_code16(A(KC_F4));
-            }
-            return false;
+        OS_TAP(MC_CLWIN, G(KC_Q), A(KC_F4))
 
         // Lock
-        case MC_LOCK:
-            if (isMacOS) {
-                tap_code16(G(C(KC_Q)));
-            } else {
-                tap_code16(G(KC_L));
-            }
-            return false;
+        OS_TAP(MC_LOCK, G(C(KC_Q)), G(KC_L))
 
         // Cut
-        case MC_CUT:
-            if (isMacOS) {
-                tap_code16(G(KC_X));
-            } else {
-                tap_code16(C(KC_X));
-            }
-            return false;
+        OS_TAP(MC_CUT, G(KC_X), C(KC_X))
 
         // Copy
-        case MC_COPY:
-            if (isMacOS) {
-                tap_code16(G(KC_C));
-            } else {
-                tap_code16(C(KC_C));
-            }
-            return false;
+        OS_TAP(MC_COPY, G(KC_C), C(KC_C))
 
         // Paste
-        case MC_PASTE:
-            if (isMacOS) {
-                tap_code16(G(KC_V));
-            } else {
-                tap_code16(C(KC_V));
-            }
-            return false;
+        OS_TAP(MC_PASTE, G(KC_V), C(KC_V))
+
+        // Delete word
+        OS_TAP(MC_DELWRD, A(KC_BSPC), C(KC_BSPC))
     }
 
     return true;
