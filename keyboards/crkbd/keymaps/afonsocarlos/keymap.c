@@ -88,11 +88,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // Extra one shot layer for accessing Function and accents keys
   [_MOUSE] = LAYOUT_split_3x6_3(
    //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       XXXXXXX, KC_WH_U, KC_BTN2, KC_MS_U, KC_BTN1, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+       XXXXXXX, KC_WH_U, KC_BTN2, KC_MS_U, KC_BTN1, XXXXXXX,                      XXXXXXX, G(KC_7), G(KC_8), G(KC_9), XXXXXXX, XXXXXXX,
    //|--------|--------+--------+--------+--------+ -------|                    |--------+--------+--------+--------+--------+--------|
-       XXXXXXX, KC_WH_D, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX,                      XXXXXXX, KC_RSFT, KC_RCTL, KC_RALT, KC_RGUI, XXXXXXX,
+       XXXXXXX, KC_WH_D, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX,                      XXXXXXX, HOME_W4, HOME_W5, HOME_W6, HOME_W0, XXXXXXX,
    //|--------|--------+--------+--------+--------+ -------|                    |--------+--------+--------+--------+--------+--------|
-       XXXXXXX, XXXXXXX, KC_BTN4, KC_BTN3, KC_BTN5, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+       XXXXXXX, XXXXXXX, KC_BTN4, KC_BTN3, KC_BTN5, XXXXXXX,                      XXXXXXX, G(KC_1), G(KC_2), G(KC_3), XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           XXXXXXX, _______, _______,     LT(_SYS,KC_ENT),  _______, XXXXXXX
                                       //`--------------------------'  `--------------------------'
@@ -164,6 +164,30 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
         case CTL_T(KC_TILD):
             if (record->tap.count && record->event.pressed) {
                 tap_code16(KC_TILD);
+                return false;
+            }
+            break;
+        case HOME_W0:
+            if (record->tap.count && record->event.pressed) {
+                tap_code16(G(KC_0));
+                return false;
+            }
+            break;
+        case HOME_W4:
+            if (record->tap.count && record->event.pressed) {
+                tap_code16(G(KC_4));
+                return false;
+            }
+            break;
+        case HOME_W5:
+            if (record->tap.count && record->event.pressed) {
+                tap_code16(G(KC_5));
+                return false;
+            }
+            break;
+        case HOME_W6:
+            if (record->tap.count && record->event.pressed) {
+                tap_code16(G(KC_6));
                 return false;
             }
             break;
