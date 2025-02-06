@@ -161,12 +161,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     if (!process_record_num_word(keycode, record)) { return false; }
 
     switch (keycode) {
-        case CTL_T(KC_TILD):
-            if (record->tap.count && record->event.pressed) {
-                tap_code16(KC_TILD);
-                return false;
-            }
-            break;
         case HOME_W0:
             if (record->tap.count && record->event.pressed) {
                 tap_code16(G(KC_0));
@@ -228,13 +222,6 @@ void caps_word_set_user(bool active) {
         autoshift_enable();
     }
 }
-
-void post_process_record_user(uint16_t keycode, keyrecord_t* record) {
-    if (keycode != LTOSL_NUMS && keycode != CTL_T(KC_ACIR) && !IS_MODIFIER_KEYCODE(keycode)) {
-        clear_oneshot_layer_state(ONESHOT_PRESSED);
-    }
-}
-
 
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     if (keycode == LTMOUS_SPC) {
