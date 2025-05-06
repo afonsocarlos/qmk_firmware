@@ -63,11 +63,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_NUMS] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX, XXXXXXX,    KC_7,    KC_8,    KC_9, XXXXXXX,                      KC_CIRC, KC_AMPR, KC_ASTR, KC_TILD,  KC_GRV, XXXXXXX,
+      XXXXXXX, KC_MINS,    KC_7,    KC_8,    KC_9, KC_PLUS,                      KC_CIRC, KC_AMPR, KC_ASTR, KC_TILD,  KC_GRV, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX,  HOME_0,  HOME_4,  HOME_5,  HOME_6, XXXXXXX,                      XXXXXXX, KC_RSFT, KC_RCTL, KC_RALT, KC_RGUI, XXXXXXX,
+      XXXXXXX,  HOME_0,  HOME_4,  HOME_5,  HOME_6, KC_ASTR,                      XXXXXXX, KC_RSFT, KC_RCTL, KC_RALT, KC_RGUI, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX,  KC_DOT,    KC_1,    KC_2,    KC_3, XXXXXXX,                      KC_MINS, KC_TARW, KC_FARW, KC_DCLN, KC_SLSH, XXXXXXX,
+      XXXXXXX,  KC_DOT,    KC_1,    KC_2,    KC_3, KC_SLSH,                      KC_MINS, KC_TARW, KC_FARW, KC_DCLN, KC_SLSH, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                       XXXXXXX, _______,  LTMOUS_SPC,     LTNAV_ENT, KC_CANCEL, XXXXXXX
                                       //`--------------------------'  `--------------------------'
