@@ -31,9 +31,9 @@ enum custom_keycodes {
     KC_EURO,  // € direct key
 
     // Composite keys
-    KC_DCLN,
-    KC_FARW,
-    KC_TARW,
+    KC_DCLN, // Double colon
+    KC_FARW, // Fat Arrow
+    KC_TARW, // Thin Arrow
 
     // Combo codes
     MC_DELWRD,
