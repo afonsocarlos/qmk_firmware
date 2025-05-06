@@ -88,11 +88,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // Extra one shot layer for accessing Function and accents keys
   [_MOUSE] = LAYOUT_split_3x6_3(
    //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       XXXXXXX, KC_WH_U, KC_BTN2, KC_MS_U, KC_BTN1, XXXXXXX,                      XXXXXXX, G(KC_7), G(KC_8), G(KC_9), XXXXXXX, XXXXXXX,
+       XXXXXXX, KC_WH_U, KC_BTN2, KC_MS_U, KC_BTN1, XXXXXXX,                      XXXXXXX, CKC_W7, CKC_W8, CKC_W9, XXXXXXX, XXXXXXX,
    //|--------|--------+--------+--------+--------+ -------|                    |--------+--------+--------+--------+--------+--------|
        XXXXXXX, KC_WH_D, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX,                      XXXXXXX, HOME_W4, HOME_W5, HOME_W6, HOME_W0, XXXXXXX,
    //|--------|--------+--------+--------+--------+ -------|                    |--------+--------+--------+--------+--------+--------|
-       XXXXXXX, XXXXXXX, KC_BTN4, KC_BTN3, KC_BTN5, XXXXXXX,                      XXXXXXX, G(KC_1), G(KC_2), G(KC_3), XXXXXXX, XXXXXXX,
+       XXXXXXX, XXXXXXX, KC_BTN4, KC_BTN3, KC_BTN5, XXXXXXX,                      XXXXXXX, CKC_W1, CKC_W2, CKC_W3, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           XXXXXXX, _______, _______,     LT(_SYS,KC_ENT),  _______, XXXXXXX
                                       //`--------------------------'  `--------------------------'
@@ -171,6 +171,24 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
                 return false;
             }
             break;
+        case CKC_W1:
+            if (record->tap.count && record->event.pressed) {
+                tap_code16(G(KC_1));
+                return false;
+            }
+            break;
+        case CKC_W2:
+            if (record->tap.count && record->event.pressed) {
+                tap_code16(G(KC_2));
+                return false;
+            }
+            break;
+        case CKC_W3:
+            if (record->tap.count && record->event.pressed) {
+                tap_code16(G(KC_3));
+                return false;
+            }
+            break;
         case HOME_W4:
             if (record->tap.count && record->event.pressed) {
                 tap_code16(G(KC_4));
@@ -186,6 +204,24 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
         case HOME_W6:
             if (record->tap.count && record->event.pressed) {
                 tap_code16(G(KC_6));
+                return false;
+            }
+            break;
+        case CKC_W7:
+            if (record->tap.count && record->event.pressed) {
+                tap_code16(G(KC_7));
+                return false;
+            }
+            break;
+        case CKC_W8:
+            if (record->tap.count && record->event.pressed) {
+                tap_code16(G(KC_8));
+                return false;
+            }
+            break;
+        case CKC_W9:
+            if (record->tap.count && record->event.pressed) {
+                tap_code16(G(KC_9));
                 return false;
             }
             break;

@@ -16,6 +16,13 @@
 #define HOME_W5 RCTL_T(KC_5)
 #define HOME_W6 LALT_T(KC_6)
 
+#define CKC_W1 LCTL_T(KC_1)
+#define CKC_W2 LCTL_T(KC_2)
+#define CKC_W3 LCTL_T(KC_3)
+#define CKC_W7 LCTL_T(KC_7)
+#define CKC_W8 LCTL_T(KC_8)
+#define CKC_W9 LCTL_T(KC_9)
+
 #define LTMOUS_SPC LT(_MOUSE,KC_SPC)
 #define LTNUMWORD LT(_NUMS,NUMWORD)
 #define LTNAV_ENT LT(_NAV,KC_ENT)
