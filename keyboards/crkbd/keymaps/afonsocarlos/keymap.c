@@ -142,10 +142,14 @@ void on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap_count) {
 uint32_t get_smtd_timeout(uint16_t keycode, smtd_timeout timeout) {
     switch (keycode) {
         case HOME_A:
+        case HOME_R:
         case HOME_I:
+            if (timeout == SMTD_TIMEOUT_TAP) return 600;
+            if (timeout == SMTD_TIMEOUT_RELEASE) return 3;
+            if (timeout == SMTD_TIMEOUT_SEQUENCE) return 150;
         case HOME_O:
-            if (timeout == SMTD_TIMEOUT_TAP) return 300;
-            if (timeout == SMTD_TIMEOUT_RELEASE) return 10;
+            if (timeout == SMTD_TIMEOUT_TAP) return 600;
+            if (timeout == SMTD_TIMEOUT_RELEASE) return 1;
             if (timeout == SMTD_TIMEOUT_SEQUENCE) return 150;
     }
 
