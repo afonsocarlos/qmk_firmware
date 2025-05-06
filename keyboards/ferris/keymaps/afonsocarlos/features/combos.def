@@ -1,0 +1,65 @@
+/*    COMBO NAME       , OUTPUT    , PARAMS    */
+
+/*---- TOP ROW HORIZONTAL----*/
+COMB(qwerty_layout_combo,    DF(_QWERTY),        KC_Q, KC_W, KC_F, KC_P)
+COMB(clwin_combo,            MC_CLWIN,           KC_Q, KC_W, KC_F)
+COMB(f12_combo,              KC_F12,             KC_Q, KC_W)
+COMB(fcrel_combo,            KC_ESC,             KC_W, KC_F)
+COMB(swapwin_combo,          KC_NO,              KC_P, KC_B)
+
+COMB(bspc_combo,             KC_BSPC,            KC_L, KC_U)
+COMB(del_combo,              KC_DEL,             KC_U, KC_Y)
+COMB(del_word_combo,         MC_DELWRD,          KC_L, KC_U, KC_Y)
+COMB(lock_combo,             MC_LOCK,            KC_Y, KC_QUOT)
+
+
+/*---- HOME ROW HORIZONTAL----*/
+COMB(colemak_layout_combo,   DF(_BASE),          HOME_A, HOME_R, HOME_S, HOME_T)
+COMB(save_combo,             C(KC_S),            HOME_R, HOME_S)
+COMB(tab_combo,              KC_TAB,             HOME_S, HOME_T)
+COMB(swaptab_combo,          KC_NO,              HOME_T, KC_G)
+
+COMB(labk_combo,             KC_LABK,            KC_M, HOME_N) // <
+COMB(lprn_combo,             KC_LPRN,            HOME_N, HOME_E) // (
+COMB(rprn_combo,             KC_RPRN,            HOME_E, HOME_I) // )
+COMB(rabk_combo,             KC_RABK,            HOME_I, HOME_O) // >
+
+
+/*---- BOTTOM ROW HORIZONTAL ----*/
+COMB(copy_combo,             MC_COPY,            KC_X, KC_C)
+COMB(cut_combo,              MC_CUT,             KC_X, KC_D)
+COMB(paste_combo,            MC_PASTE,           KC_C, KC_D)
+COMB(primary_combo,          S(KC_INS),          KC_X, KC_C, KC_D)
+
+COMB(lcbr_combo,             KC_LCBR,            KC_K, KC_H) // {
+COMB(lbrc_combo,             KC_LBRC,            KC_H, KC_COMM) // [
+COMB(rbrc_combo,             KC_RBRC,            KC_COMM, KC_DOT) // ]
+COMB(rcbr_combo,             KC_RCBR,            KC_DOT, KC_SLSH) // }
+
+
+/*---- TOP ROW VERTICAL ----*/
+COMB(at_combo,               KC_AT,              KC_W, HOME_R) // @
+COMB(hash_combo,             KC_HASH,            KC_F, HOME_S) // #
+COMB(dollar_combo,           KC_DLR,             KC_P, HOME_T) // $
+COMB(percent_combo,          KC_PERC,            KC_B, KC_G) // %
+
+COMB(circ_combo,             KC_CIRC,            KC_J, KC_M) // ^
+COMB(plus_combo,             KC_PLUS,            KC_L, HOME_N) // +
+COMB(asterisk_combo,         KC_ASTR,            KC_U, HOME_E) // *
+COMB(ampersand_combo,        KC_AMPR,            KC_Y, HOME_I) // &
+
+
+/*---- BOTTOM ROW VERTICAL ----*/
+COMB(backtick_combo,         KC_GRV,             HOME_R, KC_X) // `
+COMB(backslash_combo,        KC_BSLS,            HOME_S, KC_C) // \ (backslash)
+COMB(equal_combo,            KC_EQL,             HOME_T, KC_D) // =
+COMB(tilde_combo,            KC_TILD,            KC_G, KC_V) // ~
+
+COMB(underscore_combo,       KC_UNDS,            KC_M, KC_K) // _
+COMB(minus_combo,            KC_MINS,            HOME_N, KC_H) // -
+COMB(question_combo,         KC_QUES,            HOME_E, KC_COMM) // ?
+COMB(exclamation_combo,      KC_EXLM,            HOME_I, KC_DOT) // !
+
+
+/*---- BOTH HANDS ----*/
+COMB(capsword_combo,         CW_TOGG,            HOME_T, HOME_N)
